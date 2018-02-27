@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/session.service';
+import { logWarnings } from 'protractor/built/driverProviders';
 
 @Component({
   selector: 'app-login-form',
@@ -29,9 +30,10 @@ export class LoginFormComponent implements OnInit {
   }
 
   logout(){
+    let username = this.session.user.username;
     this.session.logout()
     .catch(e => this.error = e)
-    .subscribe();
+      .subscribe(user => console.log(`Hope to see you soon ${username}!`));
   }
 
 }
