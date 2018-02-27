@@ -1,2 +1,7 @@
-<input class="form-control" type="text" placeholder="What do you desire?">
-<button [routerLink]="['']" (click)="logout()">logout</button>
+<div *ngIf="session.getUser()">
+    <input class="form-control" type="text" placeholder="What do you desire?">
+    <button [routerLink]="['']" (click)="logout()">logout</button>
+</div>
+<div *ngIf="!session.getUser()"> do you think you are doing motherfucker
+<button [routerLink]="['']">homew  </button>
+</div>
