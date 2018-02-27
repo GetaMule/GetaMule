@@ -1,14 +1,21 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const mongoose = require('mongoose');
+const {dbURL} = require('./config');
+const cors = require('cors');
+const auth = require('./routes/auth');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+const app = express();
 
-var app = express();
+mongoose.connect(dbURL)
+        .then(()=> console.log("Connected to DB"))
+        .catch(e => console.error(e));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,8 +29,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
+app.use('/api/auth', auth);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
