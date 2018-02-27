@@ -21,16 +21,36 @@ mongoose.connect(dbURL)
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+var whitelist = [
+  'http://localhost:4200',
+];
+var corsOptions = {
+  origin: function(origin, callback){
+      var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+      callback(null, originIsWhitelisted);
+  },
+  credentials: true
+};
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(cors(corsOptions));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api/auth', auth);
+app.use(session({
+  secret: 'angular auth passport secret shh',
+  resave: true,
+  saveUninitialized: true,
+  cookie : { httpOnly: true, maxAge: 2419200000 },
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
 
+require('./passport')(app)
+
+app.use('/api/auth', auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
