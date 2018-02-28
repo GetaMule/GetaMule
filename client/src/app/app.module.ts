@@ -8,6 +8,7 @@ import { SessionService } from '../services/session.service';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 
@@ -15,13 +16,14 @@ import { routes } from './routes';
   declarations: [
     AppComponent,
     LoginFormComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MatDatepickerModule
   ],
   providers: [SessionService],
   bootstrap: [AppComponent]
