@@ -9,7 +9,12 @@ const userSchema = new Schema({
     ref: 'Order',
     require: true
 
-  }]
+  }],
+  role: {
+    type: String,
+    enum: ["MULE", "CUSTOMER"], 
+    default: "CUSTOMER"
+  }
 }, {
     timestamps: {
       createdAt: 'created_at',
