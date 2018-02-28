@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   username: String,
   password: String,
+  originCountry: String,
+
   orders: [{
     type: Schema.Types.ObjectId,
     ref: 'Order',
@@ -12,7 +14,7 @@ const userSchema = new Schema({
   }],
   role: {
     type: String,
-    enum: ["MULE", "CUSTOMER"], 
+    enum: ["MULE", "CUSTOMER"],
     default: "CUSTOMER"
   }
 }, {
