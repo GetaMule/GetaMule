@@ -5,7 +5,8 @@ const orderSchema = new Schema({
     originCountry: String,
     destinationCountry: String,
     item: {
-        quantity: Number, name: String,
+        quantity: Number,
+        name: String,
         mass: Number,
         price: Number
     }
