@@ -5,10 +5,9 @@ const orderSchema = new Schema({
     originCountry: String,
     destinationCountry: String,
     item: {
-        quantity: Number,
-        name: String,
-        mass: Number,
-        price: Number
+        type: Schema.Types.ObjectId,
+        ref: 'Product',
+        require: true
     }
 }, {
         timestamps: {
