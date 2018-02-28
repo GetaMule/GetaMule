@@ -7,11 +7,13 @@
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bcrypt": "^1.0.3",
     "body-parser": "~1.18.2",
     "connect-mongo": "^2.0.1",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
+    "curlrequest": "^1.0.1",
     "debug": "~2.6.9",
     "dotenv": "^5.0.1",
     "ejs": "~2.5.7",

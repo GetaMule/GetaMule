@@ -19,7 +19,9 @@ const userSchema = new Schema({
     timestamps: {
       createdAt: 'created_at',
       updatedAt: 'updated_at'
-    }
+    },
+    reviews: String,
+    stars: Number
   });
 
 const User = mongoose.model('User', userSchema);
