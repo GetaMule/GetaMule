@@ -54,6 +54,7 @@ require('./passport')(app)
 app.use('/api/auth', auth);
 app.use('/', getProduct);
 
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

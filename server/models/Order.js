@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
-    originCountry: String,
+    originCountry: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        require: true
+    },
     destinationCountry: String,
     item: {
         type: Schema.Types.ObjectId,
