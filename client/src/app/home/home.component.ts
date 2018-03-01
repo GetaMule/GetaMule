@@ -9,7 +9,7 @@ import { SessionService } from '../../services/session.service';
 export class HomeComponent implements OnInit {
 
   constructor(public session:SessionService) { }
-  // searchInput: any = new AmazonAutocomplete ("#search-input");
+  // searchInput: any = 
   
   ngOnInit() {
   }
