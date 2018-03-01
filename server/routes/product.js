@@ -31,22 +31,22 @@ router.post('/getProduct', (req, res, next) => {
       console.log(response);
     });
 });
-router.get('/getProduct', (req, res, next) => {
-  axios({
-    method: 'get',
-    url: `https://api.priceapi.com/jobs/${data.data.job_id}?token=${bodyFormData.token}`,
-    data: bodyFormData,
-    //config: { headers: { 'Content-Type': 'multipart/form-data' } }
-  })
-    .then(result => {
-      console.log(result)
-      res.json(result)
-    })
-    .catch((e) => {
-      //handle error
-      console.log(e);
-    });
+// router.get('/getProduct', (req, res, next) => {
+//   axios({
+//     method: 'get',
+//     url: `https://api.priceapi.com/jobs/${data.data.job_id}?token=${bodyFormData.token}`,
+//     data: bodyFormData,
+//     //config: { headers: { 'Content-Type': 'multipart/form-data' } }
+//   })
+//     .then(result => {
+//       console.log(result)
+//       res.json(result)
+//     })
+//     .catch((e) => {
+//       //handle error
+//       console.log(e);
+//     });
 
-})
+// })
 
 module.exports = router;
