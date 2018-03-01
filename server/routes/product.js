@@ -10,8 +10,8 @@ router.post('/getProduct', (req, res, next) => {
     source: 'google-shopping',
     currentness: 'daily_updated',
     key: 'keyword',
-    country: "fr",
-    values: "iPhone 8",
+    country: "us", //reads from database
+    values: req.body.values
   };
   axios({
     method: 'post',
@@ -20,7 +20,7 @@ router.post('/getProduct', (req, res, next) => {
   })
     .then(data => {
       //handle success
-      ;
+      console.log(data.data)
       res.json(data.data)
 
     })
