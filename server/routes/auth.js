@@ -21,10 +21,7 @@ router.post('/signup', (req, res, next) => {
     url: "http://ip-api.com/json"
   })
     .then(country => {
-      console.log('()()()()()()')
-      console.log(country.data.countryCode.toLowerCase())
       originCountry = country.data.countryCode.toLowerCase();
-      
       if (!username || !password) return res.status(400).json({ message: 'Provide username and password' })
       User.findOne({ username }, '_id')
         .then(foundUser =>{
