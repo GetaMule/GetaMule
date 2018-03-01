@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/session.service';
 import { SubmitProdService } from '../../services/submit-prod.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
   values: String;
   error: String
 
-  constructor(public session: SessionService, public submit: SubmitProdService) { }
+  constructor(private router: Router,public session: SessionService, public submit: SubmitProdService) { }
 
   ngOnInit() {
 
@@ -20,7 +21,10 @@ export class HomeComponent implements OnInit {
   logout() {
     let username = this.session.user.username;
     this.session.logout()
-      .subscribe(user => console.log(`Hope to see you soon ${username}!`));
+      .subscribe(user => {
+        console.log(`Hope to see you soon !`)
+        this.router.navigate(['user/home'])
+      });
   }
   submitProduct() {
    

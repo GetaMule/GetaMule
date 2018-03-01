@@ -1,4 +1,17 @@
-<div>
-  <pre> {{ session.getUser() | json }} </pre>
-  <button class="btn btn-danger" (click)="logout()"> hello </button>
+  <div *ngIf="session.getUser()">
+    <div>
+    Username:{{ session.getUser().username}}
+  </div>
+  <div>
+      Country:{{ session.getUser().originCountry}}
+    </div>
+    <div>
+        Orders:{{ session.getUser().orders | json }}
+      </div>
+
+  <button class="btn btn-danger"[routerLink]="['']"(click)="logout()"> Logout-Profile </button>
+</div>
+<div *ngIf="!session.getUser()">
+  <h1>You need to be Logged in to look into your details</h1>
+  <button class="btn"[routerLink]="['']"> Home </button>
 </div>
