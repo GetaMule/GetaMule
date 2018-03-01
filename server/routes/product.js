@@ -10,7 +10,7 @@ router.post('/getProduct', (req, res, next) => {
     source: 'google-shopping',
     currentness: 'daily_updated',
     key: 'keyword',
-    country: req.body.country,
+    country: "us",
     values: req.body.values,
   };
 
@@ -22,7 +22,7 @@ router.post('/getProduct', (req, res, next) => {
   })
     .then(data => {
       //handle success
-      ;
+      console.log(data.data)
       res.json(data.data)
 
     })

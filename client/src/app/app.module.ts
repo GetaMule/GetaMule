@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SessionService } from '../services/session.service';
+import { SubmitProdService } from '../services/submit-prod.service';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
@@ -23,7 +24,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     RouterModule.forRoot(routes),
     MatDatepickerModule
   ],
-  providers: [SessionService],
+  providers: [SessionService, SubmitProdService],
   bootstrap: [AppComponent]
 })
   

@@ -1,9 +1,10 @@
 <div *ngIf="session.getUser()">
-    <input class="form-control" type="text" placeholder="What do you desire?">
+    <form>
+        <input class="form-control" type="text" placeholder="What do you desire?" [(ngModel)]="values" name="values">
+        <button (click)="submitProduct()"> Submit </button>
+        <br>
+    </form>
 </div>
 <button class="btn btn-success" [routerLink]="['']" (click)="logout()">logout</button>
 <div *ngIf="!session.getUser()"> You do not have privileges to access this site! Please log in to place an order!
-<button [routerLink]="['']">Home</button>
-
-
-
+    <button [routerLink]="['']">Home</button>
