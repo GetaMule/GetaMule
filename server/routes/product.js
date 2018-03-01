@@ -17,7 +17,6 @@ router.post('/getProduct', (req, res, next) => {
     method: 'post',
     url: 'https://api.priceapi.com/jobs',
     data: bodyFormData
-    // config: { headers: {'Content-Type': 'multipart/form-data' }}
   })
     .then(data => {
       //handle success
