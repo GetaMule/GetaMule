@@ -17,8 +17,7 @@ router.post('/getProduct', (req, res, next) => {
   axios({
     method: 'post',
     url: 'https://api.priceapi.com/jobs',
-    data: bodyFormData,
-    config: { headers: { 'Content-Type': 'multipart/form-data' } }
+    data: bodyFormData
   })
     .then(data => {
       //handle success
