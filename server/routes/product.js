@@ -11,6 +11,7 @@ router.post('/getProduct', (req, res, next) => {
     currentness: 'daily_updated',
     key: 'keyword',
     country: "us", //reads from database
+
     values: req.body.values
   };
   axios({
@@ -20,31 +21,48 @@ router.post('/getProduct', (req, res, next) => {
   })
     .then(data => {
       //handle success
-      console.log(data.data)
+
       res.json(data.data)
 
+      const newProduct = new Product({
+        name: bodyFormData.values,
+        job_id: data.data.job_id,
+        author: req.user._id,
+
+      });
+      return newProduct.save()
+        .then(prod => { res.status(200).json(req.prod) })
     })
     .catch(function (response) {
       //handle error
       console.log(response);
     });
 });
-// router.get('/getProduct', (req, res, next) => {
-//   axios({
-//     method: 'get',
-//     url: `https://api.priceapi.com/jobs/${data.data.job_id}?token=${bodyFormData.token}`,
-//     data: bodyFormData,
-//     //config: { headers: { 'Content-Type': 'multipart/form-data' } }
-//   })
-//     .then(result => {
-//       console.log(result)
-//       res.json(result)
-//     })
-//     .catch((e) => {
-//       //handle error
-//       console.log(e);
-//     });
 
-// })
+router.get('/getProduct', (req, res, next) => {
+  console.log("getProduct next")
+  var user = res.locals.user;
+
+  Product.findOne({ author: res.locals.user._id }).sort({ created_at: -1 })
+    .then(prod => {
+
+      axios.get(`https://api.priceapi.com/jobs/${prod.job_id}?token=${process.env.PRICE_API}`)
+        .then(result => {
+          axios.get(`https://api.priceapi.com/products/bulk/${prod.job_id}?token=${process.env.PRICE_API}`)
+            .then(result => {
+              console.log(result.data.products[0])
+              res.json(result.data.products[0].offers)
+            })
+        })
+
+        .catch((e) => {
+          //handle error
+          console.log(e);
+        });
+
+
+    })
+})
+
 
 module.exports = router;

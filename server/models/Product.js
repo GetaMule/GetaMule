@@ -4,7 +4,13 @@ const Schema = mongoose.Schema;
 const productSchema = new Schema({
   name: String,
   mass: Number,
-  price: Number
+  price: Number,
+  job_id: String,
+  author: {
+    type: Schema.Types.ObjectId,
+        ref: 'User',
+        require: true
+  }
   
 }, {
         timestamps: {

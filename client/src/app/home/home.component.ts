@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   constructor(public session: SessionService, public submit: SubmitProdService) { }
 
   ngOnInit() {
+
   }
 
   logout() {
@@ -26,6 +27,12 @@ export class HomeComponent implements OnInit {
     this.submit.submit(this.values)
       .catch(e => this.error = e)
       .subscribe(res => console.log("product submited" + res));
+  }
+  searchProduct() {
+    this.submit.search()
+      .catch(e => this.error = e)
+      .subscribe(res => console.log("product searched" + res));
+  
   }
 }
 

@@ -10,12 +10,14 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
     HomeComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

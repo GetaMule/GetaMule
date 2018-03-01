@@ -1,10 +1,17 @@
-
 <div *ngIf="session.getUser()">
     <form>
         <input class="form-control" type="text" placeholder="What do you desire?" [(ngModel)]="values" name="values">
         <button (click)="submitProduct()"> Submit </button>
+        <button (click)="searchProduct()"> Search </button>
+
         <br>
+        <br>
+        <br>
+        <br>
+        <button class="btn btn-danger" (click)="logout()">Logout</button>
+        <button [routerLink]="['profile']">Profile</button>
     </form>
 </div>
 <div *ngIf="!session.getUser()"> You do not have privileges to access this site! Please log in to place an order!
     <button [routerLink]="['']">Home</button>
+</div>

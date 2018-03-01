@@ -51,6 +51,11 @@ app.use(session({
 
 require('./passport')(app)
 
+app.use((req,res,next)=>{
+  res.locals.user=req.user;
+  next();
+})
+
 app.use('/api/auth', auth);
 app.use('/', getProduct);
 

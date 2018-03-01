@@ -26,4 +26,9 @@ export class SubmitProdService {
       .map(res => res.json())
       .catch(this.handleError);
   }
+  search(): Observable<any> {
+    return this.http.get(`${this.BASEURL}/getProduct`,this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
 }
