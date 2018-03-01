@@ -7,6 +7,7 @@
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
+    "amazon-autocomplete": "^1.0.1",
     "axios": "^0.18.0",
     "bcrypt": "^1.0.3",
     "body-parser": "~1.18.2",

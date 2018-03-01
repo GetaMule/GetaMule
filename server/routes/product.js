@@ -10,10 +10,9 @@ router.post('/getProduct', (req, res, next) => {
     source: 'google-shopping',
     currentness: 'daily_updated',
     key: 'keyword',
-    country: req.body.country,
-    values: req.body.values,
+    country: "fr",
+    values: "iPhone 8",
   };
-
   axios({
     method: 'post',
     url: 'https://api.priceapi.com/jobs',
