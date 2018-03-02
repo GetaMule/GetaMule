@@ -11,8 +11,9 @@ import { Router } from '@angular/router'
 export class HomeComponent implements OnInit {
   values: String;
   error: String
-
-  constructor(private router: Router,public session: SessionService, public submit: SubmitProdService) { }
+  p: any = []
+  image: any = 'http://via.placeholder.com/200x200'
+  constructor(private router: Router, public session: SessionService, public submit: SubmitProdService) { }
 
   ngOnInit() {
 
@@ -27,16 +28,29 @@ export class HomeComponent implements OnInit {
       });
   }
   submitProduct() {
-   
+
     this.submit.submit(this.values)
       .catch(e => this.error = e)
-      .subscribe(res => console.log("product submited" + res));
+      .subscribe(res => {
+        console.log("Product submited" + res)
+      }
+      );
   }
   searchProduct() {
     this.submit.search()
       .catch(e => this.error = e)
-      .subscribe(res => console.log("product searched" + res));
-  
+      .subscribe(res => {//products[0].offers
+        
+         this.image = res.products[0].image_url
+        console.log(JSON.stringify(res))
+        res = res.products[0].offers
+        res.forEach(p => {
+          this.p.push(p);
+          console.log(JSON.stringify(p.shop_name) + JSON.stringify(p.price));
+        })
+
+      });
+
   }
 }
 

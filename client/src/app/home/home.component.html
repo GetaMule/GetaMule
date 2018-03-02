@@ -6,10 +6,19 @@
 
         <br>
         <br>
+        
+        <div  *ngFor="let price of p" class="card" style="width: 18rem;">
+                <img class="card-img-top" src={{image}} alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{ price.price | json }}</h5>
+                  <p class="card-text">{{price.shop_name | json }}</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
         <br>
         <br>
         <button class="btn btn-danger" (click)="logout()">Logout-Home</button>
-       
+
     </form>
 </div>
 <div *ngIf="!session.getUser()"> You do not have privileges to access this site! Please log in to place an order!
