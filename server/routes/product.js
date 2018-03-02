@@ -5,6 +5,8 @@ const axios = require('axios');
 require("dotenv");
 
 router.post('/getProduct', (req, res, next) => {
+
+  
   const bodyFormData = {
     token: process.env.PRICE_API,
     source: 'google-shopping',
@@ -33,9 +35,9 @@ router.post('/getProduct', (req, res, next) => {
       return newProduct.save()
         .then(prod => { res.status(200).json(req.prod) })
     })
-    .catch(function (response) {
+    .catch(function (e) {
       //handle error
-      console.log(response);
+      console.log(e);
     });
 });
 
@@ -48,7 +50,7 @@ router.get('/getProduct', (req, res, next) => {
         .then(result => {
           axios.get(`https://api.priceapi.com/products/bulk/${prod.job_id}?token=${process.env.PRICE_API}`)
             .then(result => {
-              console.log(result.data)
+              
               res.json(result.data)//products[0].offers
             }).catch((e) => {
               res.status(404).json(e)

@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   values: String;
   error: String
   p: any = []
-  image: any = 'http://via.placeholder.com/200x200'
+  image: any = 'http://via.placeholder.com/100x100'
   constructor(private router: Router, public session: SessionService, public submit: SubmitProdService) { }
 
   ngOnInit() {
@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
       .subscribe(res => {//products[0].offers
         
          this.image = res.products[0].image_url
-        console.log(JSON.stringify(res))
+
         res = res.products[0].offers
         res.forEach(p => {
           this.p.push(p);
