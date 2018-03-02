@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import 'jquery-mapael';
+//import 'jquery-mapael';
 
 
 @Component({

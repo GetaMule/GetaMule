@@ -18,3 +18,7 @@
 .ac__word--selected, .ac__word:hover{
   background-color: #e3e3e3;
 }
+.card{
+  display: inline-block;
+  margin: 5px 15px;
+}
