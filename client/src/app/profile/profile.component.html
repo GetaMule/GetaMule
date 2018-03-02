@@ -10,6 +10,7 @@
       </div>
 
   <button class="btn btn-danger"[routerLink]="['']"(click)="logout()"> Logout-Profile </button>
+  <button [routerLink]="['edit',   usernameId._id] ">edit</button>
 </div>
 <div *ngIf="!session.getUser()">
   <h1>You need to be Logged in to look into your details</h1>

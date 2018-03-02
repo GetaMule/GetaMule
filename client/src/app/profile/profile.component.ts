@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/session.service';
 import { Router } from '@angular/router'
+import { EditUserService } from '../../services/edit-user.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,8 +9,15 @@ import { Router } from '@angular/router'
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
-  constructor(public router: Router, public session: SessionService) { }
+  usernameId: any;
+  constructor(public router: Router, public session: SessionService, public edit: EditUserService) {
+    
+    this.edit.getInfo()
+      .subscribe(res => {
+        console.log(res.user)
+        this.usernameId = res.user
+    })
+   }
 
   ngOnInit() {
   }

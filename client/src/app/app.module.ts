@@ -6,12 +6,15 @@ import { HttpModule } from '@angular/http';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SessionService } from '../services/session.service';
 import { SubmitProdService } from '../services/submit-prod.service';
+import { EditUserService } from '../services/edit-user.service';
+
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ProfileComponent } from './profile/profile.component';
 import { MapComponent } from './map/map.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,7 @@ import { MapComponent } from './map/map.component';
     HomeComponent,
     ProfileComponent,
     MapComponent,
+    EditUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,8 +32,9 @@ import { MapComponent } from './map/map.component';
     RouterModule.forRoot(routes),
     MatDatepickerModule
   ],
-  providers: [SessionService, SubmitProdService],
+  providers: [SessionService, SubmitProdService,
+    EditUserService],
   bootstrap: [AppComponent]
 })
-  
+
 export class AppModule { }
