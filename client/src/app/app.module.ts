@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ProfileComponent } from './profile/profile.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ProfileComponent } from './profile/profile.component';
     LoginFormComponent,
     HomeComponent,
     ProfileComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
