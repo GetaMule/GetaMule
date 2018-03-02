@@ -11,22 +11,38 @@ import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ProfileComponent } from './profile/profile.component';
-import { MapComponent } from './map/map.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule, MatSidenavModule, MatFormFieldModule, MatInputModule, MatTooltipModule, MatNativeDateModule} from '@angular/material';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
     HomeComponent,
-    ProfileComponent,
-    MapComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    MatDatepickerModule
+    MatDatepickerModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTooltipModule,
+    MatNativeDateModule
   ],
   providers: [SessionService, SubmitProdService],
   bootstrap: [AppComponent]
