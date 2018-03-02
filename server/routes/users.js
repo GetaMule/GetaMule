@@ -21,7 +21,7 @@ router.put('/edit/:id', (req, res, next) => {
   const updates = {
 
     username: req.body.user.username,
-    originCountry: req.body.user.originCountry,
+    
     password: req.body.user.password,
     role: req.body.user.role,
 
