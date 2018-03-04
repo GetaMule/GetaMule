@@ -44,6 +44,8 @@ export class HomeComponent implements OnInit {
          this.image = res.products[0].image_url
 
         res = res.products[0].offers
+        console.log(res)
+        this.p = [];
         res.forEach(p => {
           this.p.push(p);
           console.log(JSON.stringify(p.shop_name) + JSON.stringify(p.price));

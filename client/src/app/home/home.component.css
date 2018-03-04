@@ -22,3 +22,6 @@
   display: inline-block;
   margin: 5px 15px;
 }
+.card-img-top{
+  padding:5px;
+}
