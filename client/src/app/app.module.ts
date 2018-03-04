@@ -13,8 +13,11 @@ import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ProfileComponent } from './profile/profile.component';
-import { MapComponent } from './map/map.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule, MatSidenavModule, MatFormFieldModule, MatInputModule, MatTooltipModule, MatNativeDateModule} from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,6 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     LoginFormComponent,
     HomeComponent,
     ProfileComponent,
-    MapComponent,
     EditUserComponent,
   ],
   imports: [
@@ -30,7 +32,21 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     HttpModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    MatDatepickerModule
+    MatDatepickerModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTooltipModule,
+    MatNativeDateModule
   ],
   providers: [SessionService, SubmitProdService,
     EditUserService],
