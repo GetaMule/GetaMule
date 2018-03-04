@@ -6,13 +6,14 @@
 
         <br>
         <br>
-        <div *ngIf="{{values}}"><h3>When do you desire the {{values}} ?</h3></div>
-        
-        <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+        <div *ngIf="values"><h3>When do you desire the {{values}} ?</h3></div>
+        <div class="calendar-container">            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+        </div>
+
 
 
         <div  *ngFor="let price of p" class="card" style="width: 18rem;">

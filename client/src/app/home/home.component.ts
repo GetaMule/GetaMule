@@ -11,7 +11,8 @@ import { Router } from '@angular/router'
 export class HomeComponent implements OnInit {
   values: String;
   error: String
-  p: any = []
+  p: any = [];
+  picker: any;
   image: any = 'http://via.placeholder.com/100x100'
   constructor(private router: Router, public session: SessionService, public submit: SubmitProdService) { }
 
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit {
       .catch(e => this.error = e)
       .subscribe(res => {
         console.log("Product submited" + res)
+        console.log(picker)
       }
       );
   }
