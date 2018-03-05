@@ -9,9 +9,11 @@ const orderSchema = new Schema({
     },
     destinationCountry: String,
     item: {
-        price: String,  
+        price: String,
+        shop_name: String,
+        currency: String,
+        orderDate: Date
     },
-    orderDate: Date,
 }, {
         timestamps: {
             createdAt: 'created_at',
