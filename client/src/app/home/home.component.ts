@@ -9,6 +9,7 @@ import { Router } from '@angular/router'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  myDate :Date;
   values: String;
   error: String
   p: any = [];
@@ -17,9 +18,11 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, public session: SessionService, public submit: SubmitProdService) { }
 
   ngOnInit() {
-
   }
 
+  submitDate(myDate) {
+    console.log(myDate)
+  }
   logout() {
     let username = this.session.user.username;
     this.session.logout()
