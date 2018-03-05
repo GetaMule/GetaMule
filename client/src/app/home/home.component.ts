@@ -50,7 +50,8 @@ export class HomeComponent implements OnInit {
         this.p = [];
         res.forEach(p => {
           this.p.push(p);
-          console.log(JSON.stringify(p.shop_name) + JSON.stringify(p.price));
+          console.log(JSON.stringify(p.shop_name) + JSON.stringify(p.price)+JSON.stringify(p.currency));
+
         })
 
       });

@@ -1,12 +1,12 @@
-  <div *ngIf="session.getUser()">
+  <div *ngIf="usernameId">
     <div>
-    Username:{{ session.getUser().username}}
+    Username:{{ usernameId.username}}
   </div>
   <div>
-      Country:{{ session.getUser().originCountry}}
+      Country:{{ usernameId.originCountry}}
     </div>
     <div>
-        Orders:{{ session.getUser().orders | json }}
+        Orders:{{ usernameId.orders | json }}
       </div>
 
   <button class="btn btn-danger"[routerLink]="['']"(click)="logout()"> Logout-Profile </button>

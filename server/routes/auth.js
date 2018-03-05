@@ -31,7 +31,8 @@ router.post('/signup', (req, res, next) => {
           const theUser = new User({
             username,
             password: hashPass,
-            originCountry
+            originCountry,
+            
           });
           console.log(theUser)
           return theUser.save()

@@ -14,10 +14,12 @@ import { routes } from './routes';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ProfileComponent } from './profile/profile.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { MytravelsComponent } from './mytravels/mytravels.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule, MatSidenavModule, MatFormFieldModule, MatInputModule, MatTooltipModule, MatNativeDateModule} from '@angular/material';
-
+import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule, MatSidenavModule, MatFormFieldModule, MatInputModule, MatTooltipModule, MatNativeDateModule } from '@angular/material';
+import { NewtravelComponent } from './newtravel/newtravel.component';
+import { OrderByPipe } from './pipes/orderby.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,9 @@ import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, Ma
     HomeComponent,
     ProfileComponent,
     EditUserComponent,
+    MytravelsComponent,
+    NewtravelComponent,
+    OrderByPipe,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,8 @@ import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, Ma
     MatFormFieldModule,
     MatInputModule,
     MatTooltipModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+
   ],
   providers: [SessionService, SubmitProdService,
     EditUserService],

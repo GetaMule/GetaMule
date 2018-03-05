@@ -36,13 +36,17 @@ export class EditUserService {
 
 
   }
-  edit(user,userid): Observable<any> {
-    return this.http.put(`${this.BASEURL}/api/user/edit/${userid}`, {user}, this.options)
+  edit(user, userid): Observable<any> {
+    return this.http.put(`${this.BASEURL}/api/user/edit/${userid}`, { user }, this.options)
       .map((res) => res.json())
       .catch(this.handleError)
   }
 
-
+  addTravel(myTravels, userid): Observable<any> {
+    return this.http.put(`${this.BASEURL}/api/user/new/${userid}`, { myTravels }, this.options)
+      .map((res) => res.json())
+      .catch(this.handleError)
+  }
 }
 
 

@@ -12,6 +12,11 @@ const userSchema = new Schema({
     require: true
 
   }],
+  myTravels: [{
+    type: Schema.Types.ObjectId,
+    ref: 'MyTravels',
+    require: true
+  }],
   role: {
     type: String,
     enum: ["MULE", "CUSTOMER"],

@@ -6,24 +6,28 @@
 
         <br>
         <br>
-        <div *ngIf="values"><h3>When do you desire the {{values}} ?</h3></div>
-        <div class="calendar-container">            <mat-form-field>
+        <div *ngIf="values">
+            <h3>When do you desire the {{values}} ?</h3>
+        </div>
+        <div class="calendar-container">
+            <mat-form-field>
                 <input matInput [matDatepicker]="picker" placeholder="Choose a date">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
+            </mat-form-field>
         </div>
 
 
 
-        <div  *ngFor="let price of p" class="card" style="width: 18rem;">
-                <img class="card-img-top" src={{image}} width="100" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">{{ price.price | json }}</h5>
-                  <p class="card-text">{{price.shop_name | json }}</p>
-                  <a href={{price.url}} target="_blank" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+        <div *ngFor="let price of p" class="card" style="width: 18rem;">
+            <img class="card-img-top" src={{image}} width="75" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ price.price | json }} - {{ price.currency | json }} </h5>
+                <p class="card-text">{{price.shop_name | json }}</p>
+                <a href={{price.url}} target="_blank" class="btn btn-primary">View Product Link</a>
+                <a href='#' class="btn btn-success">Order product </a>
+            </div>      
+        </div>
         <br>
         <br>
         <button class="btn btn-danger" (click)="logout()">Logout-Home</button>
