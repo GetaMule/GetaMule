@@ -23,7 +23,7 @@
                 <h5 class="card-title">{{ price.price | json }} - {{ price.currency | json }} </h5>
                 <p class="card-text">{{price.shop_name | json }}</p>
                 <a href={{price.url}} target="_blank" class="btn btn-primary">View Product Link</a>
-                <a class="btn btn-success">Order product </a>
+                <button class="btn btn-success" (click)="order(price, myDate)">Order product </button>
             </div>
         </div>
         <br>

@@ -31,4 +31,10 @@ export class SubmitProdService {
       .map(res => res.json())
       .catch(this.handleError);
   }
+
+  submitOrder(object: Object, myDate: Date): Observable<any> {
+    return this.http.post(`${this.BASEURL}/pushOrder`, { object, myDate }, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
 }

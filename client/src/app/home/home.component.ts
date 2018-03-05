@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   values: String;
   error: String
   p: any = [];
+  item: any;
   usernameId: any
   picker: any;
   image: any = 'http://via.placeholder.com/100x100'
@@ -38,7 +39,6 @@ export class HomeComponent implements OnInit {
   }
 
   submitDate(myDate) {
-    console.log("jfaklsjdfñlaksjdfñlakjsdfñklajf")
     console.log(myDate)
   }
   logout() {
@@ -65,16 +65,24 @@ export class HomeComponent implements OnInit {
       .subscribe(res => {//products[0].offers
         this.image = res.products[0].image_url
         res = res.products[0].offers
-        console.log(res)
         this.p = [];
         res.forEach(p => {
           this.p.push(p);
           console.log(JSON.stringify(p.shop_name) + JSON.stringify(p.price) + JSON.stringify(p.currency));
-
+          
         })
-
+        console.log(this.p);
       });
 
+  }
+
+  order(price, myDate) {
+    this.myDate = myDate;
+    this.item = price;
+    this.submit.submitOrder(this.item, this.myDate).subscribe(res => {
+      console.log(res);
+      this.router.navigate(['user/home'])
+    });
   }
 
 }

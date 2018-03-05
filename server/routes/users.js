@@ -17,7 +17,6 @@ router.get('/', (req, res, next) => {
 });
 
 router.put('/edit/:id', (req, res, next) => {
-  console.log(req.body)
   const userId = req.params.id;
   const updates = {
 
