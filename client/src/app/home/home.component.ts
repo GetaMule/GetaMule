@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/session.service';
 import { SubmitProdService } from '../../services/submit-prod.service';
-import { Router } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router'
+import { EditUserService } from '../../services/edit-user.service';
 
 @Component({
   selector: 'app-home',
@@ -9,18 +10,35 @@ import { Router } from '@angular/router'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  myDate :Date;
+  myDate: Date;
   values: String;
   error: String
   p: any = [];
+  usernameId: any
   picker: any;
   image: any = 'http://via.placeholder.com/100x100'
-  constructor(private router: Router, public session: SessionService, public submit: SubmitProdService) { }
+  user_id: any
+  constructor(
+    public editar: EditUserService,
+    private router: Router,
+    private route: ActivatedRoute, public session: SessionService, public submit: SubmitProdService) {
+
+    this.editar.getInfo()
+      .subscribe(res => {
+        console.log(res.user)
+        this.usernameId = res.user
+      })
+  }
+
+
+
 
   ngOnInit() {
+ 
   }
 
   submitDate(myDate) {
+    console.log("jfaklsjdfñlaksjdfñlakjsdfñklajf")
     console.log(myDate)
   }
   logout() {
@@ -37,7 +55,7 @@ export class HomeComponent implements OnInit {
       .catch(e => this.error = e)
       .subscribe(res => {
         console.log("Product submited" + res)
-        
+
       }
       );
   }
@@ -45,20 +63,19 @@ export class HomeComponent implements OnInit {
     this.submit.search()
       .catch(e => this.error = e)
       .subscribe(res => {//products[0].offers
-        
-         this.image = res.products[0].image_url
-
+        this.image = res.products[0].image_url
         res = res.products[0].offers
         console.log(res)
         this.p = [];
         res.forEach(p => {
           this.p.push(p);
-          console.log(JSON.stringify(p.shop_name) + JSON.stringify(p.price)+JSON.stringify(p.currency));
+          console.log(JSON.stringify(p.shop_name) + JSON.stringify(p.price) + JSON.stringify(p.currency));
 
         })
 
       });
 
   }
+
 }
 

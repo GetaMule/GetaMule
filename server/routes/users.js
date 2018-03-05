@@ -3,6 +3,8 @@ var router = express.Router();
 var User = require('../models/User')
 const bcrypt = require('bcrypt');
 const MyTravels = require('../models/MyTravels')
+const Order = require('../models/Order')
+
 
 
 router.get('/', (req, res, next) => {
@@ -38,7 +40,7 @@ router.put('/edit/:id', (req, res, next) => {
     .then(user => res.status(200).json({ user }))
     .catch(e => res.status(500).json(e))
 });
-
+//NewTravel
 router.put('/new/:id', (req, res, next) => {
   console.log(req.body)
   const userId = req.params.id;
@@ -69,6 +71,27 @@ router.get('/delete-travel/:id', (req, res) => {
   MyTravels.findByIdAndRemove(travelId)
     .then(user => res.status(200).json({ user }))
     .catch(e => res.status(500).json(e));
+})
+//Add Order
+router.put('/order/add/:id', (req, res, next) => {
+  console.log(req.body)
+  const userId = req.params.id
+ // const orderDate
+  new MyTravels({
+    
+
+  }).save()
+    .then((newOrd) => {
+      User.findByIdAndUpdate(
+        { _id: userId },
+        { $push: { orders: newOrd._id } },
+        { new: true })
+        .then(user => res.status(200).json({ user }))
+        .catch(e => res.status(500).json(e))
+
+
+    })
+
 })
 
 

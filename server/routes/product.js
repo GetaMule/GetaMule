@@ -4,9 +4,12 @@ const router = express.Router();
 const axios = require('axios');
 require("dotenv");
 
+
+
+
 router.post('/getProduct', (req, res, next) => {
 
-  
+
   const bodyFormData = {
     token: process.env.PRICE_API,
     source: 'google-shopping',
@@ -41,7 +44,9 @@ router.post('/getProduct', (req, res, next) => {
     });
 });
 
+
 router.get('/getProduct', (req, res, next) => {
+  console.log("entro despoues de 10 sec")
   var user = res.locals.user;
 
   Product.findOne({ author: res.locals.user._id }).sort({ created_at: -1 })
@@ -50,7 +55,7 @@ router.get('/getProduct', (req, res, next) => {
         .then(result => {
           axios.get(`https://api.priceapi.com/products/bulk/${prod.job_id}?token=${process.env.PRICE_API}`)
             .then(result => {
-              
+
               res.json(result.data)//products[0].offers
             }).catch((e) => {
               res.status(404).json(e)
@@ -65,6 +70,4 @@ router.get('/getProduct', (req, res, next) => {
 
     })
 })
-
-
 module.exports = router;

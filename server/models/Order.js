@@ -9,9 +9,7 @@ const orderSchema = new Schema({
     },
     destinationCountry: String,
     item: {
-        type: Schema.Types.ObjectId,
-        ref: 'Product',
-        require: true
+        price: String,  
     },
     orderDate: Date,
 }, {

@@ -1,4 +1,4 @@
-<div *ngIf="session.getUser()">
+<div *ngIf="usernameId">
     <form>
         <input class="form-control" type="text" placeholder="What do you desire?" [(ngModel)]="values" name="values">
         <button (click)="submitProduct()"> Submit </button>
@@ -6,7 +6,9 @@
 
         <br>
         <br>
-        <div *ngIf="values"><h3>When do you desire the {{values}} ?</h3></div>
+        <div *ngIf="values">
+            <h3>When do you desire the {{values}} ?</h3>
+        </div>
         <mat-form-field class="example-full-width">
             <input matInput [matDatepicker]="picker" [(ngModel)]="myDate" name="myDate" (dateInput)="submitDate(myDate)">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -21,8 +23,8 @@
                 <h5 class="card-title">{{ price.price | json }} - {{ price.currency | json }} </h5>
                 <p class="card-text">{{price.shop_name | json }}</p>
                 <a href={{price.url}} target="_blank" class="btn btn-primary">View Product Link</a>
-                <a href='#' class="btn btn-success">Order product </a>
-            </div>      
+                <a class="btn btn-success">Order product </a>
+            </div>
         </div>
         <br>
         <br>
@@ -32,6 +34,6 @@
     <br>
     <br>
 </div>
-<div *ngIf="!session.getUser()"> You do not have privileges to access this site! Please log in to place an order!
+<div *ngIf="!usernameId"> You do not have privileges to access this site! Please log in to place an order!
     <button [routerLink]="['']">Home</button>
 </div>

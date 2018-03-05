@@ -20,6 +20,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule, MatSidenavModule, MatFormFieldModule, MatInputModule, MatTooltipModule, MatNativeDateModule } from '@angular/material';
 import { NewtravelComponent } from './newtravel/newtravel.component';
 import { OrderByPipe } from './pipes/orderby.pipe';
+//import { OrdersComponent } from './orders/orders.component';
+//import { NeworderComponent } from './neworder/neworder.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { OrderByPipe } from './pipes/orderby.pipe';
     MytravelsComponent,
     NewtravelComponent,
     OrderByPipe,
+   // OrdersComponent,
+    //NeworderComponent,
   ],
   imports: [
     BrowserModule,

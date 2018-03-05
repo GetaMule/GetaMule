@@ -18,6 +18,8 @@ export class NewtravelComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.route.params.subscribe(body => {
+        console.log("impresion body")
+        console.log(body)
         this.user_id = body.id
 
       })

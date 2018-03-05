@@ -51,6 +51,14 @@ export class EditUserService {
     return this.http.get(`${this.BASEURL}/api/user/delete-travel/${id}`)
       .map((res) => res.json());
   }
+  addOrder(product, myDate, userid): Observable<any> {
+    console.log("desde el service")
+    console.log(userid)
+    return this.http.put(`${this.BASEURL}/api/user/add/order/${userid}`, { product, myDate }, this.options)
+      .map((res) => res.json())
+      .catch(this.handleError)
+
+  }
 }
 
 
