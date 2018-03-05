@@ -8,9 +8,9 @@ describe('NewtravelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewtravelComponent ]
+      declarations: [NewtravelComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -23,3 +23,5 @@ describe('NewtravelComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+

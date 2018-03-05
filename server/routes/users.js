@@ -73,26 +73,26 @@ router.get('/delete-travel/:id', (req, res) => {
     .catch(e => res.status(500).json(e));
 })
 //Add Order
-router.put('/order/add/:id', (req, res, next) => {
-  console.log(req.body)
-  const userId = req.params.id
- // const orderDate
-  new MyTravels({
-    
-
-  }).save()
-    .then((newOrd) => {
-      User.findByIdAndUpdate(
-        { _id: userId },
-        { $push: { orders: newOrd._id } },
-        { new: true })
-        .then(user => res.status(200).json({ user }))
-        .catch(e => res.status(500).json(e))
+// router.put('/order/add/:id', (req, res, next) => {
+//   console.log(req.body)
+//   const userId = req.params.id
+//  // const orderDate
+//   new MyTravels({
 
 
-    })
+//   }).save()
+//     .then((newOrd) => {
+//       User.findByIdAndUpdate(
+//         { _id: userId },
+//         { $push: { orders: newOrd._id } },
+//         { new: true })
+//         .then(user => res.status(200).json({ user }))
+//         .catch(e => res.status(500).json(e))
 
-})
+
+//     })
+
+// })
 
 
 module.exports = router;
