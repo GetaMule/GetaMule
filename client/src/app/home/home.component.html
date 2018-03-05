@@ -3,7 +3,7 @@
         <input class="form-control" type="text" placeholder="What do you desire?" [(ngModel)]="values" name="values">
         <button (click)="submitProduct()"> Submit </button>
         <button (click)="searchProduct()"> Search </button>
-
+        <mat-spinner></mat-spinner>
         <br>
         <br>
         <div *ngIf="values"><h3>When do you desire the {{values}} ?</h3></div>
