@@ -7,12 +7,11 @@
         <br>
         <br>
         <div *ngIf="values"><h3>When do you desire the {{values}} ?</h3></div>
-        <div class="calendar-container">            <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-        </div>
+        <mat-form-field class="example-full-width">
+            <input matInput [matDatepicker]="picker" [(ngModel)]="myDate" name="myDate" (dateInput)="submitDate(myDate)">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker touchUi="true" #picker></mat-datepicker>
+        </mat-form-field>
 
 
 
