@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
   User.findById(userId, (err, user) => {
     if (err) return res.status(500).json({ message: 'Something went wrong' });
     res.status(200).json({ user: user })
-  }).populate("myTravels").then((respuesta)=>{res.status(200).json({ user: respuesta })});
+  }).populate("myTravels").then((respuesta) => { res.status(200).json({ user: respuesta }) });
 });
 
 router.put('/edit/:id', (req, res, next) => {
@@ -61,6 +61,14 @@ router.put('/new/:id', (req, res, next) => {
 
     })
 
+})
+router.get('/delete-travel/:id', (req, res) => {
+  const travelId = req.params.id;
+  console.log(req.params.id)
+
+  MyTravels.findByIdAndRemove(travelId)
+    .then(user => res.status(200).json({ user }))
+    .catch(e => res.status(500).json(e));
 })
 
 

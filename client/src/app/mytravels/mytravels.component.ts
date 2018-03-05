@@ -16,11 +16,16 @@ export class MytravelsComponent implements OnInit {
 
     this.edit.getInfo()
       .subscribe(res => {
-        console.log(res.user)
         this.usernameId = res.user
       })
   }
+
   ngOnInit() {
+  }
+  deleteTravel(id) {
+    this.edit.remove(id).subscribe(m => {
+      this.router.navigate(['mytravels']);
+    });
   }
 
 }

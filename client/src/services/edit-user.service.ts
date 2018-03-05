@@ -47,6 +47,10 @@ export class EditUserService {
       .map((res) => res.json())
       .catch(this.handleError)
   }
+  remove(id): Observable<any> {
+    return this.http.get(`${this.BASEURL}/api/user/delete-travel/${id}`)
+      .map((res) => res.json());
+  }
 }
 
 

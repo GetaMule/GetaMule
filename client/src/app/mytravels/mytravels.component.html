@@ -1,10 +1,11 @@
 <hr>
 <div *ngIf="usernameId">
-    <button [routerLink]="['new',   usernameId._id] ">Add Travel</button><br><br>
+    <button class="btn btn-primary"[routerLink]="['new',   usernameId._id] ">Add Travel</button><br><br>
   <h5>Travels :</h5>
   <div *ngFor='let t of usernameId.myTravels | orderByPipe'>
     <p>From: {{t.origin}}</p>
     <p>To: {{t.destiny}}</p>
     <p>When: {{t.date  | date: 'fullDate'}}</p>
+    <button class="btn btn-danger"(click)="deleteTravel(t._id)">Delete</button>
     <hr>
-  </div>
+  </div>  
