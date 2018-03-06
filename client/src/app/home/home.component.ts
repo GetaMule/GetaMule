@@ -21,29 +21,37 @@ export class HomeComponent implements OnInit {
   picker: any;
   image: any = 'http://via.placeholder.com/100x100'
   user_id: any;
-  users: any = []
+  users: any=[];
   constructor(
     public editar: EditUserService,
     private router: Router,
     private route: ActivatedRoute, public session: SessionService, public submit: SubmitProdService) {
-    this.submit.getCountries().subscribe(res => {
-      console.log(res)
-    })
-    this.editar.getInfo()
+      this.editar.getInfo()
       .subscribe(res => {
         this.usernameId = res.user
-
+        
       })
-  }
-  //     this.users = this.getCountries();
-  // console.log(this.users)
-  // getCountries() {
-  //   return this.submit.getCountries().subscribe(res => {
-  //   });
-  // }
-  ngOnInit() {
-
-  }
+    }
+    
+    ngOnInit() {
+      this.getCountries();
+      
+    }
+        getCountries() {
+          return this.submit.getCountries().subscribe(res => {
+            console.log("hola")
+            res = JSON.parse(res._body)
+            res.user.forEach(element => {
+              this.users.push(element)
+              console.log('(.)(.)')
+             
+              
+            });
+            //console.log(JSON.parse(res._body))
+           // this.users = JSON.parse(res._body).user[0].originCountry;
+           console.log(this.users)
+          });
+        }
   submitDate(myDate) {
     console.log(myDate)
   }
@@ -94,4 +102,3 @@ export class HomeComponent implements OnInit {
   }
 
 }
-
