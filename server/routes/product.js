@@ -7,12 +7,13 @@ const User = require('../models/User')
 require('dotenv');
 
 router.post('/getProduct', (req, res, next) => {
+  console.log(req.body.country)
   const bodyFormData = {
     token: process.env.PRICE_API,
     source: 'google-shopping',
     currentness: 'daily_updated',
     key: 'keyword',
-    country: 'us', //reads from database
+    country: req.body.country, //reads from database
 
     values: req.body.values,
   };

@@ -12,28 +12,38 @@ import { EditUserService } from '../../services/edit-user.service';
 export class HomeComponent implements OnInit {
   myDate: Date;
   values: String;
+  country: String
   error: String
   p: any = [];
+
   item: any;
   usernameId: any
   picker: any;
   image: any = 'http://via.placeholder.com/100x100'
-  user_id: any
+  user_id: any;
+  users: any = []
   constructor(
     public editar: EditUserService,
     private router: Router,
     private route: ActivatedRoute, public session: SessionService, public submit: SubmitProdService) {
-
+    this.submit.getCountries().subscribe(res => {
+      console.log(res)
+    })
     this.editar.getInfo()
       .subscribe(res => {
-        console.log(res.user)
         this.usernameId = res.user
+
       })
   }
+  //     this.users = this.getCountries();
+  // console.log(this.users)
+  // getCountries() {
+  //   return this.submit.getCountries().subscribe(res => {
+  //   });
+  // }
   ngOnInit() {
- 
-  }
 
+  }
   submitDate(myDate) {
     console.log(myDate)
   }
@@ -47,7 +57,7 @@ export class HomeComponent implements OnInit {
   }
   submitProduct() {
 
-    this.submit.submit(this.values)
+    this.submit.submit(this.values, this.country)
       .catch(e => this.error = e)
       .subscribe(res => {
         console.log("Product submited" + res)
@@ -65,7 +75,7 @@ export class HomeComponent implements OnInit {
         res.forEach(p => {
           this.p.push(p);
           console.log(JSON.stringify(p.shop_name) + JSON.stringify(p.price) + JSON.stringify(p.currency));
-          
+
         })
         console.log(this.p);
       });
@@ -77,7 +87,7 @@ export class HomeComponent implements OnInit {
     this.item = item;
     console.log("=============================")
     this.submit.submitOrder(this.item, this.myDate).subscribe((res) => {
-    console.log("entro a la funcion submit de order en component")
+      console.log("entro a la funcion submit de order en component")
       console.log(res)
       this.router.navigate(['/orders'])
     });

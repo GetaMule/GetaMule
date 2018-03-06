@@ -10,7 +10,7 @@ export class SubmitProdService {
   options: object = { withCredentials: true };
 
   constructor(private http: Http) { }
-
+  users: Array<string>;
 
 
   handleError(e) {
@@ -18,11 +18,13 @@ export class SubmitProdService {
     return Observable.throw(e.json().message);
   }
 
+  getCountries(): Observable<any>  {
+    return this.http.get(`${this.BASEURL}/api/user/getCountries`)
+  }
 
-
-  submit(values: String): Observable<any> {
+  submit(values: String, country: String): Observable<any> {
     console.log(values)
-    return this.http.post(`${this.BASEURL}/getProduct`, { values }, this.options)
+    return this.http.post(`${this.BASEURL}/getProduct`, { values, country }, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }

@@ -1,20 +1,23 @@
 <div *ngIf="usernameId">
     <form>
-        <input class="form-control" type="text" placeholder="What do you desire?" [(ngModel)]="values" name="values">
+        <input class="form-control" type="text" placeholder="What do you want to buy?" [(ngModel)]="values" name="values">
+        <!-- <div *ngFor="let country in users">
+            <option value="{{country.}}">{{user}}</option>
+        </select>
+        </div> -->
         <button (click)="submitProduct()"> Submit </button>
         <button (click)="searchProduct()"> Search </button>
-
         <br>
         <br>
         <div *ngIf="values">
-            <h3>When do you desire the {{values}} ?</h3>
+            <h3>When do you want the {{values}} ?</h3>
         </div>
         <mat-form-field class="example-full-width">
             <input matInput [matDatepicker]="picker" [(ngModel)]="myDate" name="myDate" (dateInput)="submitDate(myDate)">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker touchUi="true" #picker></mat-datepicker>
         </mat-form-field>
-
+        <br>
 
 
         <div *ngFor="let price of p" class="card" style="width: 18rem;">
@@ -23,7 +26,7 @@
                 <h5 class="card-title">{{ price.price | json }} - {{ price.currency | json }} </h5>
                 <p class="card-text">{{price.shop_name | json }}</p>
                 <a href={{price.url}} target="_blank" class="btn btn-primary">View Product Link</a>
-                <button class="btn btn-success" (click)="order(price, myDate)">Order product </button>
+                <button class="btn  order-btn btn-success" (click)="order(price, myDate)">Order product </button>
             </div>
         </div>
         <br>

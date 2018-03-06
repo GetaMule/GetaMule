@@ -16,6 +16,16 @@ router.get('/', (req, res, next) => {
   }).populate("myTravels").populate("orders").then((respuesta) => { res.status(200).json({ user: respuesta }) });
 });
 
+
+router.get('/getCountries', (req, res, next) => {
+  
+  User.find().then(user => {
+    console.log("fdkljadfñljadsñlfjasdfkjñasldkjfaldskjfladskjflkasjdfñlkadsjfñladskjfñlkajsdfñlkadsjfñlkasjdfñlaksjfafkladsfjkladsjfñlkajsdfñlkajdsf");
+    console.log(user)
+    res.status(200).json({ user});
+  }).catch(e => res.status(500).json(e))
+});
+
 router.put('/edit/:id', (req, res, next) => {
   const userId = req.params.id;
   const updates = {
