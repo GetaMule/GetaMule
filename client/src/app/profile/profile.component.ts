@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
     this.session.logout()
       .subscribe(user => {
         console.log(`Hope to see you soon ${username}!`)
-        this.router.navigate(['user/home'])
+        this.router.navigate(['/'])
 
       });
   }

@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
     this.session.logout()
       .subscribe(user => {
         console.log(`Hope to see you soon !`)
-        this.router.navigate(['user/home'])
+        this.router.navigate(['/'])
       });
   }
   submitProduct() {

@@ -9,7 +9,7 @@
         Orders:{{ usernameId.orders | json }}
       </div>
 
-  <button class="btn btn-danger"[routerLink]="['']"(click)="logout()"> Logout-Profile </button>
+  <button class="btn btn-danger" (click)="logout()"> Logout-Profile </button>
   <button [routerLink]="['edit',   usernameId._id] ">edit</button>
 </div>
 <div *ngIf="!session.getUser()">
