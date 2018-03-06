@@ -21,6 +21,8 @@ import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, Ma
 import { NewtravelComponent } from './newtravel/newtravel.component';
 import { OrderByPipe } from './pipes/orderby.pipe';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { OrdersComponent } from './orders/orders.component';
+//import { NeworderComponent } from './neworder/neworder.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MytravelsComponent,
     NewtravelComponent,
     OrderByPipe,
+    OrdersComponent,
+    OrdersComponent,
+    //NeworderComponent,
   ],
   imports: [
     BrowserModule,

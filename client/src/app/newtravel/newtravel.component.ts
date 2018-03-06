@@ -18,15 +18,17 @@ export class NewtravelComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.route.params.subscribe(body => {
+        console.log("impresion body")
+        console.log(body)
         this.user_id = body.id
 
       })
     });
   }
   add(myTravels) {
-    console.log(this.user_id)
     this.editar.addTravel(myTravels, this.user_id)
       .subscribe(user => {
+        console.log("newtravel subscriber ")
         console.log(user)
         this.router.navigate(['mytravels'])
       });

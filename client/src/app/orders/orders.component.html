@@ -1,0 +1,16 @@
+<h1>Your current orders:</h1>
+<div *ngIf="usernameId.orders.length >= 1">
+<div *ngFor="let o of usernameId.orders">
+  Price:<p>{{o.price}}</p><p>{{o.currency}}</p>
+At:<p>{{o.shop_name}}</p>
+
+Arrives:<p>{{o.orderDate | date :'fullDate'}}</p>
+
+<button class="btn btn-danger"(click)="deleteOrder(o._id)">Delete</button>
+</div>
+</div>
+
+<div *ngIf="usernameId.orders.length < 1" >
+<h5>You don't have any order yet</h5>
+<button [routerLink]="['']">Make an order</button>
+</div>
