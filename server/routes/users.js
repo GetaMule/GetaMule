@@ -13,17 +13,18 @@ router.get('/', (req, res, next) => {
   User.findById(userId, (err, user) => {
     if (err) return res.status(500).json({ message: 'Something went wrong' });
     res.status(200).json({ user: user })
-  }).populate("myTravels").populate("orders").then((respuesta) => { res.status(200).json({ user: respuesta }) });
+  }).populate("myTravels").populate("orders")
+    .then((respuesta) => { res.status(200).json({ user: respuesta }) });
 });
 
 
 router.get('/getCountries', (req, res, next) => {
-  
-  User.find().then(user => {
-    console.log("fdkljadfñljadsñlfjasdfkjñasldkjfaldskjfladskjflkasjdfñlkadsjfñladskjfñlkajsdfñlkadsjfñlkasjdfñlaksjfafkladsfjkladsjfñlkajsdfñlkajdsf");
-    console.log(user)
-    res.status(200).json({ user});
-  }).catch(e => res.status(500).json(e))
+  User.find()
+    .then(user => {
+
+      res.status(200).json({ user })
+    })
+    .catch(e => res.status(500).json(e))
 });
 
 router.put('/edit/:id', (req, res, next) => {
@@ -61,7 +62,7 @@ router.put('/new/:id', (req, res, next) => {
 
   }).save()
     .then((newTrav) => {
-      
+
       User.findByIdAndUpdate(
         { _id: userId },
         { $push: { myTravels: newTrav._id } },
