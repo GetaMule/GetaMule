@@ -29,3 +29,9 @@
   margin-top: 5px;
   padding: 10px 30px;
 }
+.btn-s:hover:not(.active) {
+  background-color: #4CAF50;
+   color:white}
+   .card-img-top{
+     width: 80%
+   }

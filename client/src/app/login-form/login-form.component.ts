@@ -8,9 +8,9 @@ import { Router } from '@angular/router'
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
-  
-@Component({ selector: 'mat-spinner' })  
-  
+
+@Component({ selector: 'mat-spinner' })
+
 export class LoginFormComponent implements OnInit {
 
   username: string;
@@ -19,23 +19,40 @@ export class LoginFormComponent implements OnInit {
   constructor(private router: Router, public session: SessionService) { }
 
   ngOnInit() {
+
+  }
+  toggleSignup() {
+    document.getElementById("login-toggle").style.backgroundColor = "#fff";
+    document.getElementById("login-toggle").style.color = "#222";
+    document.getElementById("signup-toggle").style.backgroundColor = "#57b846";
+    document.getElementById("signup-toggle").style.color = "#fff";
+    document.getElementById("login-form").style.display = "none";
+    document.getElementById("signup-form").style.display = "block";
   }
 
+  toggleLogin() {
+    document.getElementById("login-toggle").style.backgroundColor = "#57B846";
+    document.getElementById("login-toggle").style.color = "#fff";
+    document.getElementById("signup-toggle").style.backgroundColor = "#fff";
+    document.getElementById("signup-toggle").style.color = "#222";
+    document.getElementById("signup-form").style.display = "none";
+    document.getElementById("login-form").style.display = "block";
+  }
   login() {
-    
+
     this.session.login(this.username, this.password)
       .catch(e => this.error = e)
       .subscribe(user => {
         console.log(`Welcome ${user.username}`)
-        this.router.navigate(['user/home'])
+        
       });
   }
 
   signup() {
     this.session.signup(this.username, this.password)
       .catch(e => this.error = e)
-      .subscribe( home=> {
-        this.router.navigate(['user/home'])
+      .subscribe(home => {
+       
       });
   }
 

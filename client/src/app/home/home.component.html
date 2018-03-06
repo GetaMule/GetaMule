@@ -1,12 +1,18 @@
 <div *ngIf="usernameId">
     <form>
-        <input class="form-control" type="text" placeholder="What do you want to buy?" [(ngModel)]="values" name="values">
-        <!-- <div *ngFor="let country in users">
-            <option value="{{country.}}">{{user}}</option>
+        <input class="form-control" width="50px"type="text" placeholder="What do you want to buy?" [(ngModel)]="values" name="values">
+
+
+        <select class="form-control" width="50px"[(ngModel)]="country" name="country">
+            <option *ngFor="let country of users" value="{{country.originCountry }}">{{country.originCountry}}</option>
         </select>
-        </div> -->
-        <button (click)="submitProduct()"> Submit </button>
-        <button (click)="searchProduct()"> Search </button>
+
+
+
+
+
+        <button class="btn btn-s"(click)="submitProduct()"> Submit </button>
+        <button class="btn btn-s"(click)="searchProduct()"> Search </button>
         <br>
         <br>
         <div *ngIf="values">
@@ -20,10 +26,10 @@
         <br>
 
 
-        <div *ngFor="let price of p" class="card" style="width: 18rem;">
-            <img class="card-img-top" src={{image}} width="75" alt="Card image cap">
+        <div *ngFor="let price of p" class="card" style="width: 15rem;">
+            <img class="card-img-top" src={{image}} width="25" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">{{ price.price | json }} - {{ price.currency | json }} </h5>
+                <h5 class="card-title">{{ price.price | json}} - {{ price.currency | json }} </h5>
                 <p class="card-text">{{price.shop_name | json }}</p>
                 <a href={{price.url}} target="_blank" class="btn btn-primary">View Product Link</a>
                 <button class="btn  order-btn btn-success" (click)="order(price, myDate)">Order product </button>

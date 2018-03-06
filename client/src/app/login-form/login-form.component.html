@@ -1,21 +1,37 @@
-<h1> Authentication Sample </h1>
-<div *ngIf="!session.getUser()">
-  <form>
-    <h2> Login or Signup </h2>
-    <label> Username </label>
-    <input type="text" [(ngModel)]="username" name="username" />
-    <br>
-    <label> Password </label>
-    <input type="password" [(ngModel)]="password" name="password" />
-    <div>
-      <button (click)="login()"> Login </button>
-      <button (click)="signup()"> Signup </button>
-    </div>
-  </form>
-  <p *ngIf="error" class="error"> {{ error }} </p>
-</div>
 
 <h3>INSERT DESCRIPTION HERE</h3>
-<div *ngIf="session.getUser()">
-  <button (click)="logout()"> Logout </button>
+<div *ngIf="!session.getUser()" class="form-modal">
+
+  <div class="form-toggle">
+    <button id="login-toggle" (click)="toggleLogin()">log in</button>
+    <button id="signup-toggle" (click)="toggleSignup()">sign up</button>
+  </div>
+
+  <div id="login-form">
+    <form>
+      <input [(ngModel)]="username" name="username" type="text" placeholder="Enter email or username" />
+      <input [(ngModel)]="password" name="password" type="password" placeholder="Enter password" />
+      <button (click)="login()" type="button" class="btn login">login</button>
+      <p>
+        <a href="javascript:void(0)">Forgotten account</a>
+      </p>
+      <hr/>
+      <p *ngIf="error" class="error"> {{ error }} </p>
+    </form>
+  </div>
+
+  <div id="signup-form">
+    <form>
+      <input type="email" placeholder="Enter your email" />
+      <input [(ngModel)]="username" name="username" type="text" placeholder="Choose username" />
+      <input [(ngModel)]="password" name="password" type="password" placeholder="Create password" />
+      <button (click)="signup()" type="button" class="btn signup">create account</button>
+      <p>Clicking
+        <strong>create account</strong> means that you are agree to our
+        <a href="javascript:void(0)">terms of services</a>.</p>
+      <hr/>
+    </form>
+    <p *ngIf="error" class="error"> {{ error }} </p>
+  </div>
+
 </div>

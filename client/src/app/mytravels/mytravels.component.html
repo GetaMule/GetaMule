@@ -1,6 +1,6 @@
 <hr>
 <div *ngIf="usernameId">
-    <button class="btn btn-primary"[routerLink]="['new',   usernameId._id] ">Add Travel</button><br><br>
+    <button class="btn btn-s"[routerLink]="['new',   usernameId._id] ">Add Travel</button><br><br>
   <h5>Travels :</h5>
   <div *ngFor='let t of usernameId.myTravels | orderByPipe'>
     <p>From: {{t.origin}}</p>
