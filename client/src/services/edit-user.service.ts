@@ -59,6 +59,10 @@ export class EditUserService {
       .catch(this.handleError)
 
   }
+  deleteOrder(id): Observable<any> {
+    return this.http.get(`${this.BASEURL}/delete-order/${id}`)
+      .map((res) => res.json());
+  }
 }
 
 

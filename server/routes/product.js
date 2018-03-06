@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 const Order = require('../models/Order')
+const User = require('../models/User')
 require('dotenv');
 
 router.post('/getProduct', (req, res, next) => {
@@ -30,39 +31,66 @@ router.post('/getProduct', (req, res, next) => {
         job_id: data.data.job_id,
         author: req.user._id,
       });
-      return newProduct.save().then(prod => {
-        res.status(200).json(req.prod);
-      });
+      return newProduct.save()
+        .then(prod => { res.status(200).json(req.prod) })
     })
-    .catch(function(e) {
-      //handle error
+    .catch(function (e) {
+      res.status(500).json(e)
+
       console.log(e);
     });
 });
+//Add an order:
+router.put('/pushOrder', (req, res, next) => {
+  console.log("8====D")
+  console.log(req.session.passport.user)
+  console.log(res.locals.user._id)
 
-router.post('/pushOrder', (req, res, next) => {
-  console.log(req.params.id)
-  console.log(Number(req.body.object.price));
+  const userId = res.locals.user._id
+  console.log("8=====D")
+  console.log(req.body)
+  console.log(Number(req.body.item.price));
+  const { shop_name, currency, price } = req.body.item
   new Order({
-    price: req.body.object.price,
-    orderDate: req.body.myDate,
-    shop_name: req.body.object.shop_name,
-    currency: req.body.object.currency
+    price,
+    shop_name,
+    currency,
+    orderDate: req.body.myDate
+
   }).save()
-    .then((order) => {
-      User.findByIdAndUpdate({ _id: req.params._id }, { $push: { orders: order._id } }, { new: true })
+    .then((savedOrder) => {
+      User.findByIdAndUpdate(userId,
+        { $push: { orders: savedOrder._id } },
+        { new: true }).then(updatedUser => {
+          console.log('mi updated user =========================')
+          console.log(updatedUser)
+        })
+        .then(user => {
+          console.log(user)
+          res.status(200).json({ user })
+        })
     })
-    .then(user => res.status(200).json({ user }))
     .catch(e => {
       res.status(500).json(e)
-    });
+      console.log(e)
+    })
 });
-  
-  router.get('/getProduct', (req, res, next) => {
+router.get('/delete-order/:id', (req, res) => {
+  const orderId = req.params.id;
+  console.log(req.params.id)
+
+  Order.findByIdAndRemove(orderId)
+    .then(user => res.status(200).json({ user }))
+    .catch(e => res.status(500).json(e));
+})
+
+
+//SECOND PART OF THE PRICE API
+router.get('/getProduct', (req, res, next) => {
   var user = res.locals.user;
 
-  Product.findOne({author: res.locals.user._id})
-    .sort({created_at: -1})
+  Product.findOne({ author: res.locals.user._id })
+    .sort({ created_at: -1 })
     .then(prod => {
       axios
         .get(

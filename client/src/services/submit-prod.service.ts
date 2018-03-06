@@ -27,13 +27,15 @@ export class SubmitProdService {
       .catch(this.handleError);
   }
   search(): Observable<any> {
-    return this.http.get(`${this.BASEURL}/getProduct`,this.options)
+    return this.http.get(`${this.BASEURL}/getProduct`, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }
 
-  submitOrder(object: Object, myDate: Date): Observable<any> {
-    return this.http.post(`${this.BASEURL}/pushOrder`, { object, myDate }, this.options)
+  submitOrder(item, myDate): Observable<any> {
+    console.log("entra al servicio")
+    console.log(myDate, item)
+    return this.http.put(`${this.BASEURL}/pushOrder`, { item, myDate }, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }

@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
   User.findById(userId, (err, user) => {
     if (err) return res.status(500).json({ message: 'Something went wrong' });
     res.status(200).json({ user: user })
-  }).populate("myTravels").then((respuesta) => { res.status(200).json({ user: respuesta }) });
+  }).populate("myTravels").populate("orders").then((respuesta) => { res.status(200).json({ user: respuesta }) });
 });
 
 router.put('/edit/:id', (req, res, next) => {
@@ -41,7 +41,6 @@ router.put('/edit/:id', (req, res, next) => {
 });
 //NewTravel
 router.put('/new/:id', (req, res, next) => {
-  console.log(req.body)
   const userId = req.params.id;
   const { destiny, origin, date } = req.body.myTravels
 
@@ -52,11 +51,15 @@ router.put('/new/:id', (req, res, next) => {
 
   }).save()
     .then((newTrav) => {
+      
       User.findByIdAndUpdate(
         { _id: userId },
         { $push: { myTravels: newTrav._id } },
         { new: true })
-        .then(user => res.status(200).json({ user }))
+        .then(user => {
+          console.log(user)
+          res.status(200).json({ user })
+        })
         .catch(e => res.status(500).json(e))
 
 
@@ -71,27 +74,7 @@ router.get('/delete-travel/:id', (req, res) => {
     .then(user => res.status(200).json({ user }))
     .catch(e => res.status(500).json(e));
 })
-//Add Order
-// router.put('/order/add/:id', (req, res, next) => {
-//   console.log(req.body)
-//   const userId = req.params.id
-//  // const orderDate
-//   new MyTravels({
 
-
-//   }).save()
-//     .then((newOrd) => {
-//       User.findByIdAndUpdate(
-//         { _id: userId },
-//         { $push: { orders: newOrd._id } },
-//         { new: true })
-//         .then(user => res.status(200).json({ user }))
-//         .catch(e => res.status(500).json(e))
-
-
-//     })
-
-// })
 
 
 module.exports = router;

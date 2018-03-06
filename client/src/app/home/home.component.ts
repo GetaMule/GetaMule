@@ -30,10 +30,6 @@ export class HomeComponent implements OnInit {
         this.usernameId = res.user
       })
   }
-
-
-
-
   ngOnInit() {
  
   }
@@ -76,12 +72,14 @@ export class HomeComponent implements OnInit {
 
   }
 
-  order(price, myDate) {
+  order(item, myDate) {
     this.myDate = myDate;
-    this.item = price;
-    this.submit.submitOrder(this.item, this.myDate).subscribe(res => {
-      console.log(res);
-      this.router.navigate(['user/home'])
+    this.item = item;
+    console.log("=============================")
+    this.submit.submitOrder(this.item, this.myDate).subscribe((res) => {
+    console.log("entro a la funcion submit de order en component")
+      console.log(res)
+      this.router.navigate(['/orders'])
     });
   }
 

@@ -26,9 +26,9 @@ export class NewtravelComponent implements OnInit {
     });
   }
   add(myTravels) {
-    console.log(this.user_id)
     this.editar.addTravel(myTravels, this.user_id)
       .subscribe(user => {
+        console.log("newtravel subscriber ")
         console.log(user)
         this.router.navigate(['mytravels'])
       });
