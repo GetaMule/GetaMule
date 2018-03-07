@@ -57,10 +57,10 @@
 
   <div id="signup-form">
     <form>
-      <input type="email" placeholder="Enter your email" />
+      <input [(ngModel)]="email" name="email" type="email" placeholder="Enter your email" />
       <input [(ngModel)]="username" name="username" type="text" placeholder="Choose username" />
       <input [(ngModel)]="password" name="password" type="password" placeholder="Create password" />
-      <button (click)="signup()" type="button" class="btn signup">create account</button>
+      <button (click)="signup(email, username, password)" type="button" class="btn signup">create account</button>
       <p>Clicking
         <strong>create account</strong> means that you are agree to our
         <a href="javascript:void(0)">terms of services</a>.</p>

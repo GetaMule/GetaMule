@@ -16,6 +16,8 @@ export class LoginFormComponent implements OnInit {
   username: string;
   password: string;
   error: string;
+  email: string;
+
   constructor(private router: Router, public session: SessionService) { }
 
   ngOnInit() {
@@ -48,11 +50,15 @@ export class LoginFormComponent implements OnInit {
       });
   }
 
-  signup() {
-    this.session.signup(this.username, this.password)
+  signup(email, username, password) {
+
+    this.username = username;
+    this.email = email;
+    this.password = password;
+
+    this.session.signup(this.email, this.username, this.password)
       .catch(e => this.error = e)
       .subscribe(home => {
-       
       });
   }
 

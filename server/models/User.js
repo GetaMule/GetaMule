@@ -5,7 +5,8 @@ const userSchema = new Schema({
   username: String,
   password: String,
   originCountry: String,
-  
+  email: String,
+
   orders: [{
     type: Schema.Types.ObjectId,
     ref: 'Order',
