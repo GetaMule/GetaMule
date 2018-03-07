@@ -38,3 +38,11 @@
 .card{
   display:inline-flex
 }
+.card-h{
+  background-color: #4CAF50;
+  color :white
+
+}
+.card-b{
+  padding:2.25rem ;
+}

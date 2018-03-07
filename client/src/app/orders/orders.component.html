@@ -11,6 +11,6 @@ Arrives:<p>{{o.orderDate | date :'fullDate'}}</p>
 </div>
 
 <div *ngIf="usernameId.orders.length < 1" >
-<h5>You don't have any order yet</h5>
+<h5>You don't have any orders yet</h5>
 <button class="btn btn-s" [routerLink]="['/user/home']">Make an order</button>
 </div>
