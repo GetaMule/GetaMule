@@ -21,22 +21,22 @@ export class HomeComponent implements OnInit {
   picker: any;
   image: any = 'http://via.placeholder.com/100x100'
   user_id: any;
-  users: any=[];
+  users: any = [];
   constructor(
     public editar: EditUserService,
     private router: Router,
     private route: ActivatedRoute, public session: SessionService, public submit: SubmitProdService) {
-      this.editar.getInfo()
+    this.editar.getInfo()
       .subscribe(res => {
         this.usernameId = res.user
-        
+
       })
-    }
-    
-    ngOnInit() {
-      this.getCountries();
-      
-    }
+  }
+
+  ngOnInit() {
+    this.getCountries();
+
+  }
   getCountries() {
     return this.submit.getCountries().subscribe(res => {
       function removeDuplicates(arr){
@@ -55,8 +55,8 @@ export class HomeComponent implements OnInit {
         this.users = removeDuplicates(this.users);
       });
     });
-        }
-  
+  }
+
   submitDate(myDate) {
     console.log(myDate)
   }
