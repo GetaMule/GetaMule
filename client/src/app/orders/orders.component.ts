@@ -17,6 +17,7 @@ export class OrdersComponent implements OnInit {
     this.edit.getInfo()
       .subscribe(res => {
         this.usernameId = res.user
+        console.log(this.usernameId )
       })
   }
   ngOnInit() {
