@@ -39,22 +39,21 @@ export class HomeComponent implements OnInit {
     }
   getCountries() {
     return this.submit.getCountries().subscribe(res => {
-            console.log("hola")
-            res = JSON.parse(res._body)
-            res.user.forEach(element => {
-              this.users.push(element.originCountry);
-            });
-            function removeDuplicates(arr){
-              let unique_array = []
-              for(let i = 0;i < arr.length; i++){
-                  if(unique_array.indexOf(arr[i]) == -1){
-                      unique_array.push(arr[i])
-                  }
-              }
-              return unique_array
-          }
-      this.users = removeDuplicates(this.users);
-
+      function removeDuplicates(arr){
+        let unique_array = []
+        for(let i = 0;i < arr.length; i++){
+            if(unique_array.indexOf(arr[i]) == -1){
+                unique_array.push(arr[i])
+            }
+        }
+        return unique_array
+    }
+      console.log("hola")
+      res = JSON.parse(res._body)
+      res.user.forEach(element => {
+        this.users.push(element.originCountry);
+        this.users = removeDuplicates(this.users);
+      });
     });
         }
   
