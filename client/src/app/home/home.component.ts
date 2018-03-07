@@ -47,7 +47,9 @@ export class HomeComponent implements OnInit {
       for (var i = 0; i < this.users.length; i++) {
         if (this.users[i].originCountry === this.users[i + 1].originCountry) {
           console.log("Entro")
-          this.users.pop()
+          this.users.pop();
+          console.log("Se nborran");
+          console.log(this.users.pop())
         }
       }
       console.log(this.users)
