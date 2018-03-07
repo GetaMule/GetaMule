@@ -41,4 +41,10 @@ export class SubmitProdService {
       .map(res => res.json())
       .catch(this.handleError);
   }
+
+  sendEmail(mailoptions, mailsubject, mailtext, mailhtml){
+    console.log(mailoptions)
+    return this.http.post(`${this.BASEURL}/messages/message`, {mailoptions, mailsubject, mailtext, mailhtml}, this.options)
+      .map(res => res.json());
+  }
 }
