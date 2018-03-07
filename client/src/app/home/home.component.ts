@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   country: String
   error: String
   p: any = [];
-
+  arr: any;
   item: any;
   usernameId: any
   picker: any;
@@ -37,21 +37,23 @@ export class HomeComponent implements OnInit {
       this.getCountries();
       
     }
-        getCountries() {
-          return this.submit.getCountries().subscribe(res => {
+  getCountries() {
+    return this.submit.getCountries().subscribe(res => {
             console.log("hola")
             res = JSON.parse(res._body)
             res.user.forEach(element => {
-              console.log("fjadslfkjañlsdjfñlasdjfñlakjfñl")
-              // if (this.users[this.users.length - 1] === element) this.users.pop();
-              this.users.push(element)
-              if (this.users[this.users.length - 2].originCountry === element && this.users.length !== 1) this.users.pop();
+              this.users.push(element);
             });
-            //console.log(JSON.parse(res._body))
-           // this.users = JSON.parse(res._body).user[0].originCountry;
-           console.log(this.users)
-          });
+      for (var i = 0; i < this.users.length; i++) {
+        if (this.users[i].originCountry === this.users[i + 1].originCountry) {
+          console.log("Entro")
+          this.users.pop()
         }
+      }
+      console.log(this.users)
+    });
+        }
+  
   submitDate(myDate) {
     console.log(myDate)
   }
