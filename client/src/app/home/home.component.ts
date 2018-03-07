@@ -44,8 +44,9 @@ export class HomeComponent implements OnInit {
             res.user.forEach(element => {
               this.users.push(element);
             });
-      for (var i = 0; i < this.users.length; i++) {
-        if (this.users[i].originCountry === this.users[i + 1].originCountry) {
+      for (var i = 0, j = 1; i < this.users.length; i++) {
+        if (j >= this.users.length - 1) break;
+        if (this.users[i].originCountry === this.users[j].originCountry) {
           console.log("Entro")
           this.users.pop()
         }
