@@ -31,7 +31,8 @@
 }
 .btn-s:hover:not(.active) {
   background-color: #4CAF50;
-   color:white}
+   color:white
+  }
    .card-img-top{
      width: 80%
    }

@@ -1,0 +1,7 @@
+.btn-s:hover:not(.active) {
+    background-color: #4CAF50;
+     color:white
+    }
+.ca{
+    display:inline-flex
+}

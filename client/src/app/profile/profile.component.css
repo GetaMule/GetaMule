@@ -1,7 +1,23 @@
-div{
-    border:1px solid blue ;
-    margin-bottom:10px;
-    text-align: left;
-    padding: 5px 10px;
-   
+
+.btn-s:hover:not(.active) {
+    background-color: #4CAF50;
+     color:white
+    }
+.ca{
+    display:inline-flex
 }
+.card-h{
+    background-color: #4CAF50;
+    color :white
+  
+  }
+  .profile-pic{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }

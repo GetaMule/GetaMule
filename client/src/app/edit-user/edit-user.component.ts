@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { EditUserService } from '../../services/edit-user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+//import { FileUploader } from "ng2-file-upload";
+
+
+const URL = `http://localhost:3000/api/user/edit`;
+
 
 @Component({
   selector: 'app-edit-user',

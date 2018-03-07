@@ -22,6 +22,7 @@ import { NewtravelComponent } from './newtravel/newtravel.component';
 import { OrderByPipe } from './pipes/orderby.pipe';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { OrdersComponent } from './orders/orders.component';
+//import { FileSelectDirective } from "ng2-file-upload";
 //import { NeworderComponent } from './neworder/neworder.component';
 
 
@@ -37,6 +38,7 @@ import { OrdersComponent } from './orders/orders.component';
     OrderByPipe,
     OrdersComponent,
     OrdersComponent,
+   // FileSelectDirective
     //NeworderComponent,
   ],
   imports: [
@@ -44,7 +46,7 @@ import { OrdersComponent } from './orders/orders.component';
     HttpModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    MatDatepickerModule,
+    // MatDatepickerModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
     MatButtonModule,
