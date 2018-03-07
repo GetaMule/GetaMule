@@ -42,10 +42,10 @@ export class HomeComponent implements OnInit {
             console.log("hola")
             res = JSON.parse(res._body)
             res.user.forEach(element => {
+              console.log("fjadslfkjañlsdjfñlasdjfñlakjfñl")
+              // if (this.users[this.users.length - 1] === element) this.users.pop();
               this.users.push(element)
-              console.log('(.)(.)')
-             
-              
+              if (this.users[this.users.length - 2].originCountry === element && this.users.length !== 1) this.users.pop();
             });
             //console.log(JSON.parse(res._body))
            // this.users = JSON.parse(res._body).user[0].originCountry;

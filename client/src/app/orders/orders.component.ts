@@ -21,9 +21,5 @@ export class OrdersComponent implements OnInit {
   }
   ngOnInit() {
   }
-  deleteOrder(id) {
-    this.edit.deleteOrder(id).subscribe(m => {
-      this.router.navigate(['/profile']);
-    });
-  }
+
 }
