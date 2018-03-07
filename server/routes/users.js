@@ -11,12 +11,11 @@ router.get('/', (req, res, next) => {
   const userId = req.user._id;;
 
   User.findById(userId, (err, user) => {
-   console.log(user)
   }).populate("myTravels").populate("orders")
     .then((respuesta) => {
-      console.log(respuesta)
+     
       res.status(200).json({ user: respuesta })
-    });
+    }).catch(e => res.status(500).json(e))
 });
 
 

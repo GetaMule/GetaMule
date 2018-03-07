@@ -39,10 +39,9 @@ export class HomeComponent implements OnInit {
     }
         getCountries() {
           return this.submit.getCountries().subscribe(res => {
-            console.log("hola")
+            
             res = JSON.parse(res._body)
             res.user.forEach(element => {
-              console.log("fjadslfkjañlsdjfñlasdjfñlakjfñl")
               // if (this.users[this.users.length - 1] === element) this.users.pop();
               this.users.push(element)
               if (this.users[this.users.length - 2].originCountry === element && this.users.length !== 1) this.users.pop();
