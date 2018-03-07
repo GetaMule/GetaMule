@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { EditUserService } from '../../services/edit-user.service';
 import { ActivatedRoute, Router } from '@angular/router';
-//import { FileUploader } from "ng2-file-upload";
+// import { FileUploader } from "ng2-file-upload";
 
 
-const URL = `http://localhost:3000/api/user/edit`;
+// const URL = `http://localhost:3000/api/user/edit`;
 
 
 @Component({
@@ -15,7 +15,7 @@ const URL = `http://localhost:3000/api/user/edit`;
 export class EditUserComponent implements OnInit {
   user = {}
   user_id: any
-
+  //public uploader: FileUploader = new FileUploader({ url: URL });
   constructor(
     public editar: EditUserService,
     private router: Router,

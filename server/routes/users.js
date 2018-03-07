@@ -28,13 +28,13 @@ router.get('/getCountries', (req, res, next) => {
     })
     .catch(e => res.status(500).json(e))
 });
-router.put('/edit/:id', (req, res, next) => {// upload.single('file'),
+router.put('/edit/:id',  (req, res, next) => {// upload.single('file'),
 
   const userId = req.params.id;
   const updates = {
 
     username: req.body.user.username,
-    // image: `../uploads/${req.file.filename}`,
+    //image: `../uploads/${req.file.filename}`,
     password: req.body.user.password,
     role: req.body.user.role,
 

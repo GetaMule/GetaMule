@@ -1,10 +1,12 @@
+<br>
 <div *ngIf="usernameId">
-  <button class="btn btn-danger" (click)="logout()"> Logout-Profile </button><br>
-  <div class="card  ca border-light mb-3" style="max-width: 18rem">
- <div class="card-header card-h">ABOUT</div>
+  <div class="card  border-light mb-3">
+    <div class="card-header card-h">ABOUT</div>
+    <div class="ca">
     <div class="card-body">
-      <img class="profile-pic"src="https://d3uqp1raf0m8tp.cloudfront.net/assets/images/profile-green.png">
-      <br><br>
+      <img class="profile-pic" src="https://d3uqp1raf0m8tp.cloudfront.net/assets/images/profile-green.png">
+      <br>
+      <br>
       <div>
         Nickname: {{ usernameId.username | uppercase}}
       </div>
@@ -15,11 +17,19 @@
       <div>
         You have ({{ usernameId.orders.length }}) orders.
       </div>
-<br>
-      <button class="btn btn-s"[routerLink]="['edit',   usernameId._id] ">Edit User</button>
+      <br>
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-s" [routerLink]="['edit',   usernameId._id] ">Edit User</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-d" (click)="logout()"> Logout </button>
+        </div>
+      </div>
+    </div>
     </div>
   </div>
-  
+
 </div>
 <div *ngIf="!usernameId">
   <h1>You need to be Logged in to look into your details</h1>

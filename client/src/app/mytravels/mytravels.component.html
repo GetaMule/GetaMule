@@ -1,11 +1,49 @@
-<hr>
+<br>
 <div *ngIf="usernameId">
-    <button class="btn btn-s"[routerLink]="['new',   usernameId._id] ">Add Travel</button><br><br>
-  <h5>Travels :</h5>
+  <button class="btn btn-s" [routerLink]="['new',   usernameId._id] ">Add Travel</button>
+  <br>
+  <br>
+  <h5>Your Travels :</h5>
   <div *ngFor='let t of usernameId.myTravels | orderByPipe'>
-    <p>From: {{t.origin}}</p>
-    <p>To: {{t.destiny}}</p>
-    <p>When: {{t.date  | date: 'fullDate'}}</p>
-    <button class="btn btn-danger"(click)="deleteTravel(t._id)">Delete</button>
-    <hr>
-  </div>  
+    <div class="box boarding-pass card">
+      <div class="card-header card-h">Boarding Pass</div>
+      
+      <div class="row">
+        <div class="col airline">GetaMuleAirlines
+          <img width="25px" src="https://asturgeek.files.wordpress.com/2014/03/firefox-ed2k.png?w=256&h=256&crop=1">
+        </div>
+        <div class="col"></div>
+      </div>
+
+      <div class="row card-body">
+
+        <div class="col">
+          <strong class="land">{{t.origin | uppercase}}</strong>
+        </div>
+        <div class="col">
+          <img width="30%" src="https://www.alternativeairlines.com/images/aa/responsive/plane-right.svg" alt="plane">
+        </div>
+        <div class="col">
+          <strong class="land">{{t.destiny | uppercase}}</strong>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p class="little"> PASSENGER</p>
+          <p>{{usernameId.username | uppercase}}</p>
+        </div>
+
+        <div class="col">
+          <p class="little">BOARDING DATE:</p>
+          <p> {{t.date | date: 'mediumDate'}}</p>
+        </div>
+      </div>
+      <img src="https://es.qr-code-generator.com/phpqrcode/getCode.php?cht=qr&chl=https%3A%2F%2Fwww.ironhack.com%2Fes&chs=180x180&choe=UTF-8&chld=L|0" width="50"><br><br>
+      <button class="btn btn-danger" (click)="deleteTravel(t._id)">Delete</button>
+    </div>
+    <br>
+    <br>
+    <br>
+  </div>
+  
+</div>

@@ -2,25 +2,30 @@
 <div class="card border-light mb-3" style="max-width: 18rem">
 
 
+  <div class="card-header card-h">New Travel</div>
 
+  <div class="card-full">
   <form>
-    <div class="form-group">
-      <label>Origin:</label>
-      <input type="text" [(ngModel)]="myTravels.origin" name="origin" class="form-control" placeholder="Where are you traveling from?">
-    </div>
-    <div class="form-group">
-      <label>Destiny:</label>
-      <input type="text" [(ngModel)]="myTravels.destiny" name="destiny" class="form-control" placeholder="Where are you traveling?">
-    </div>
-    <div class="form-group">
-      <label>When:</label>
-      <mat-form-field class="example-full-width">
-        <input matInput [matDatepicker]="picker" [(ngModel)]="myTravels.date" name="date">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker touchUi="true" #picker></mat-datepicker>
-      </mat-form-field>
+    <div class="card-body">
+      <div class="form-group">
+        <label>Origin:</label>
+        <input type="text" [(ngModel)]="myTravels.origin" name="origin" class="form-control" placeholder="e.g. us">
+      </div>
+      <div class="form-group">
+        <label>Destiny:</label>
+        <input type="text" [(ngModel)]="myTravels.destiny" name="destiny" class="form-control" placeholder="e.g. es">
+      </div>
+      <div class="form-group">
+        <label>When:</label>
+        <mat-form-field class="example-full-width">
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date"[(ngModel)]="myTravels.date" name="date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker touchUi="true" #picker></mat-datepicker>
+        </mat-form-field>
 
+      </div>
     </div>
+    <button type="submit" (click)="add(myTravels)" class="btn btn-s">Submit</button>
   </form>
-  <button type="submit" (click)="add(myTravels)" class="btn btn-s ">Submit</button>
+</div>
 </div>
