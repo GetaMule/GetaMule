@@ -42,16 +42,19 @@ export class HomeComponent implements OnInit {
             console.log("hola")
             res = JSON.parse(res._body)
             res.user.forEach(element => {
-              this.users.push(element);
+              this.users.push(element.originCountry);
             });
-      for (var i = 0, j = 1; i < this.users.length; i++) {
-        if (j >= this.users.length - 1) break;
-        if (this.users[i].originCountry === this.users[j].originCountry) {
-          console.log("Entro")
-          this.users.pop()
-        }
-      }
-      console.log(this.users)
+            function removeDuplicates(arr){
+              let unique_array = []
+              for(let i = 0;i < arr.length; i++){
+                  if(unique_array.indexOf(arr[i]) == -1){
+                      unique_array.push(arr[i])
+                  }
+              }
+              return unique_array
+          }
+      this.users = removeDuplicates(this.users);
+
     });
         }
   
