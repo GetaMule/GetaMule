@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   error: String
   p: any = [];
   arr: any;
+  tel: any;
   item: any;
   usernameId: any
   picker: any;
@@ -48,7 +49,7 @@ export class HomeComponent implements OnInit {
         }
         return unique_array
     }
-      console.log("hola")
+    
       res = JSON.parse(res._body)
       res.user.forEach(element => {
         this.users.push(element.originCountry);
@@ -69,7 +70,7 @@ export class HomeComponent implements OnInit {
       });
   }
   submitProduct() {
-
+document.getElementById("spinner").style.display="block"
     this.submit.submit(this.values, this.country)
       .catch(e => this.error = e)
       .subscribe(res => {
@@ -79,27 +80,32 @@ export class HomeComponent implements OnInit {
       );
   }
   searchProduct() {
+    document.getElementById("spinner").style.display="none"
     this.submit.search()
       .catch(e => this.error = e)
       .subscribe(res => {//products[0].offers
         this.image = res.products[0].image_url
-        res = res.products[0].offers
+         this.tel = res.products[0].value
+        
         this.p = [];
-        res.forEach(p => {
+        res.products[0].offers.forEach(p => {
           this.p.push(p);
           console.log(JSON.stringify(p.shop_name) + JSON.stringify(p.price) + JSON.stringify(p.currency));
-
+          
         })
+        console.log(res)
         console.log(this.p);
       });
 
   }
 
-  order(item, myDate) {
+  order(item, myDate, tel) {
+
+    console.log("=============================")
+    console.log(tel)
     this.myDate = myDate;
     this.item = item;
-    console.log("=============================")
-    this.submit.submitOrder(this.item, this.myDate).subscribe((res) => {
+    this.submit.submitOrder(this.item, this.myDate, tel).subscribe((res) => {
       console.log("entro a la funcion submit de order en component")
       console.log(res)
       this.router.navigate(['/orders'])

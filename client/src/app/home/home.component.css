@@ -52,3 +52,10 @@
 width: 30rem;
   
 }
+
+#spinner{
+  display:none;
+}
+.spinner-container{
+  display: inline-block
+}

@@ -1,9 +1,9 @@
 <div *ngIf="usernameId.orders">
   <div *ngIf="usernameId.orders.length >= 1">
     <h1>Your current orders:</h1>
-    <div class="card">
-      <div class="card-header card-h">(Product name)</div>
-    <div class="card-body card-full" *ngFor="let o of usernameId.orders">
+    <div *ngFor="let o of usernameId.orders" class="card">
+      <div class="card-header card-h"><b>{{o.tel | uppercase}}</b></div>
+    <div class="card-body card-full" >
       Price:
       <p><span>*</span>{{o.price}} {{o.currency}}</p>
       Shop:
@@ -11,13 +11,15 @@
 
       Arrives:
       <p>{{o.orderDate | date :'fullDate'}}</p>
-      <p class="little"><span>*</span>Interests aren't added yet</p>
+      <p class="little"><span>*</span>Interest isn't added yet</p>
 
-      <button class="btn btn-danger" (click)="deleteOrder(o._id)">Delete</button>
+      <button class="btn btn-danger" (click)="deleteO(o._id)">Delete</button>
     </div>
   </div>
+  <br>
   </div>
 </div>
+
 
 <div *ngIf="usernameId.orders.length < 1">
   <h3>You don't have any orders yet</h3>

@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+// import { CountriesPipesModule, GeneralPipesModule } from 'ng2-pipe';
 //COMPONENTS
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -24,6 +25,7 @@ import { routes } from './routes';
 import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule, MatSidenavModule, MatFormFieldModule, MatInputModule, MatTooltipModule, MatNativeDateModule } from '@angular/material';
 import { OrderByPipe } from './pipes/orderby.pipe';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SecretComponent } from './secret/secret.component';
 //import { FileSelectDirective } from "ng2-file-upload";
 //import { NeworderComponent } from './neworder/neworder.component';
 
@@ -40,6 +42,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     OrderByPipe,
     OrdersComponent,
     OrdersComponent,
+    SecretComponent,
     //FileSelectDirective
 
     //NeworderComponent,
@@ -64,6 +67,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatInputModule,
     MatTooltipModule,
     MatNativeDateModule,
+    MatProgressSpinnerModule
+    // CountriesPipesModule,
+    // GeneralPipesModule
 
   ],
   providers: [SessionService, SubmitProdService,

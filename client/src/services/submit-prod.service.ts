@@ -34,10 +34,10 @@ export class SubmitProdService {
       .catch(this.handleError);
   }
 
-  submitOrder(item, myDate): Observable<any> {
+  submitOrder(item, myDate,tel): Observable<any> {
     console.log("entra al servicio")
     console.log(myDate, item)
-    return this.http.put(`${this.BASEURL}/pushOrder`, { item, myDate }, this.options)
+    return this.http.put(`${this.BASEURL}/pushOrder`, { item, myDate,tel }, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }

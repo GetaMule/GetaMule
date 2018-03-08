@@ -13,7 +13,7 @@ export class MytravelsComponent implements OnInit {
 
   usernameId: any;
   constructor(public router: Router, public session: SessionService, public edit: EditUserService) {
-
+   
     this.edit.getInfo()
       .subscribe(res => {
         this.usernameId = res.user

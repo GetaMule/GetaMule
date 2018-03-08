@@ -1,15 +1,17 @@
 <br>
 <br>
 <div *ngIf="usernameId">
-    <div class="card  ca border-light mb-3" >
-    <div class="card-header card-h">What do you want to buy?</div>
+    <div class="card  ca border-light mb-3">
+        <div class="card-header card-h">
+            <b>What do you want to buy?</b>
+        </div>
         <div class="card-body card-b">
             <form>
                 <input class="form-control" width="50px" type="text" placeholder="Product name " [(ngModel)]="values" name="values">
                 <br>
 
                 <select class="form-control" width="50px" [(ngModel)]="country" name="country">
-                    <option *ngFor="let country of users" value="{{country}}">{{country}}</option>
+                    <option *ngFor="let country of users" value="{{country}}">{{country | uppercase}}</option>
                 </select>
 
 
@@ -20,16 +22,20 @@
                 </div>
 
                 <mat-form-field class="example-full-width">
-                    <input matInput [matDatepicker]="picker" [(ngModel)]="myDate" name="myDate" placeholder="Choose a date"(dateInput)="submitDate(myDate)">
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="myDate" name="myDate" placeholder="Choose a date" (dateInput)="submitDate(myDate)">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker touchUi="true" #picker></mat-datepicker>
-                    
+
                 </mat-form-field>
                 <br>
                 <button class="btn btn-s" (click)="submitProduct()"> Submit </button>
                 <button class="btn btn-s" (click)="searchProduct()"> Search </button>
-                <br>
+                <br><br>
             </form>
+            <div class="spinner-container">
+                <mat-spinner  [diameter]="30" id="spinner"></mat-spinner>
+            </div>
+
         </div>
     </div>
     <br>
@@ -39,7 +45,7 @@
             <h5 class="card-title">{{ price.price | json}} - {{ price.currency | json }} </h5>
             <p class="card-text">{{price.shop_name | json }}</p>
             <a href={{price.url}} target="_blank" class="btn btn-primary">View Product Link</a>
-            <button class="btn  order-btn btn-success" (click)="order(price, myDate)">Order product </button>
+            <button class="btn  order-btn btn-success" (click)="order(price, myDate, tel)">Order product </button>
         </div>
     </div>
     <br>
