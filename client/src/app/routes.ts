@@ -6,6 +6,8 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { MytravelsComponent } from './mytravels/mytravels.component';
 import { NewtravelComponent } from './newtravel/newtravel.component';
 import { OrdersComponent } from './orders/orders.component';
+import { SecretComponent } from './secret/secret.component';
+
 
 export const routes: Routes = [
   { path: '', component: LoginFormComponent },
@@ -15,6 +17,7 @@ export const routes: Routes = [
   { path: 'mytravels', component: MytravelsComponent },
   { path: 'mytravels/new/:id', component: NewtravelComponent },
   { path: 'orders', component: OrdersComponent },
+  { path: 'secret', component: SecretComponent },
 
 
 

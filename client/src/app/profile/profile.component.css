@@ -1,7 +1,35 @@
-div{
-    border:1px solid blue ;
-    margin-bottom:10px;
-    text-align: left;
-    padding: 5px 10px;
+
+.btn-s:hover:not(.active) {
+    background-color: #4CAF50;
+     color:white
+    }
+    .btn-d:hover:not(.active) {
+        background-color: #dc3545;
+        border-color:#dc3545;
+         color:white
+        }
+.ca{
    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-h{
+    background-color: #4CAF50;
+    color :white
+  
+  }
+  .profile-pic{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }.card-body {
+   
+    padding: 2.25rem;
+}
+.card{
+    width: 25rem;
+    display: inline-block;
 }

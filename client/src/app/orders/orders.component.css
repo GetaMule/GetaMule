@@ -1,3 +1,23 @@
 .btn-s:hover:not(.active) {
     background-color: #4CAF50;
-     color:white}
+     color:white
+    }
+     .card{
+         width:25rem;
+         display: inline-block
+     }
+     .little{
+         font-size: xx-small
+     }
+     .card-h{
+        background-color: #4CAF50;
+        color :white
+      
+      }
+      .card-full{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+      }
+      span{
+          color:red
+      }

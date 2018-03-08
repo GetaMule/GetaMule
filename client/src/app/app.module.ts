@@ -1,28 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+// import { CountriesPipesModule, GeneralPipesModule } from 'ng2-pipe';
+//COMPONENTS
+import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { MytravelsComponent } from './mytravels/mytravels.component';
+import { NewtravelComponent } from './newtravel/newtravel.component';
+import { OrdersComponent } from './orders/orders.component';
+//SERVICES  
 import { SessionService } from '../services/session.service';
 import { SubmitProdService } from '../services/submit-prod.service';
 import { EditUserService } from '../services/edit-user.service';
 
-import { HomeComponent } from './home/home.component';
-import { RouterModule } from '@angular/router';
 import { routes } from './routes';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { ProfileComponent } from './profile/profile.component';
-import { EditUserComponent } from './edit-user/edit-user.component';
-import { MytravelsComponent } from './mytravels/mytravels.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule, MatSidenavModule, MatFormFieldModule, MatInputModule, MatTooltipModule, MatNativeDateModule } from '@angular/material';
-import { NewtravelComponent } from './newtravel/newtravel.component';
 import { OrderByPipe } from './pipes/orderby.pipe';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { OrdersComponent } from './orders/orders.component';
 import { MessageComponent } from './message/message.component';
+import { SecretComponent } from './secret/secret.component';
+//import { FileSelectDirective } from "ng2-file-upload";
+//import { NeworderComponent } from './neworder/neworder.component';
 
 
 @NgModule({
@@ -38,6 +44,9 @@ import { MessageComponent } from './message/message.component';
     OrdersComponent,
     OrdersComponent,
     MessageComponent,
+    SecretComponent,
+    //FileSelectDirective
+
     //NeworderComponent,
   ],
   imports: [
@@ -60,6 +69,9 @@ import { MessageComponent } from './message/message.component';
     MatInputModule,
     MatTooltipModule,
     MatNativeDateModule,
+    MatProgressSpinnerModule
+    // CountriesPipesModule,
+    // GeneralPipesModule
 
   ],
   providers: [SessionService, SubmitProdService,

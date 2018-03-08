@@ -48,15 +48,14 @@ router.post('/getProduct', (req, res, next) => {
 //Add an order:
 router.put('/pushOrder', (req, res, next) => {
   console.log("8====D")
-  console.log(req.session.passport.user)
-  console.log(res.locals.user._id)
+  console.log(req.body.tel)
 
   const userId = res.locals.user._id
-  console.log("8=====D")
-  console.log(req.body)
-  console.log(Number(req.body.item.price));
+  const tel = req.body.tel
   const { shop_name, currency, price } = req.body.item
+  console.log(tel)
   new Order({
+    tel,
     price,
     shop_name,
     currency,
@@ -67,11 +66,8 @@ router.put('/pushOrder', (req, res, next) => {
       User.findByIdAndUpdate(userId,
         { $push: { orders: savedOrder._id } },
         { new: true }).then(updatedUser => {
-          console.log('mi updated user =========================')
-          console.log(updatedUser)
         })
         .then(user => {
-          console.log(user)
           res.status(200).json({ user })
         })
     })
