@@ -6,6 +6,10 @@ const Order = require('../models/Order')
 const User = require('../models/User')
 require('dotenv');
 
+// router.get('/getCurrentCountry', (req, res, next) => {
+//   res.status(200).json(req.body.country);
+// });
+
 router.post('/getProduct', (req, res, next) => {
   console.log(req.body.country)
   const bodyFormData = {
@@ -13,7 +17,7 @@ router.post('/getProduct', (req, res, next) => {
     source: 'google-shopping',
     currentness: 'daily_updated',
     key: 'keyword',
-    country: req.body.country, //reads from database
+    country: req.body.country, 
 
     values: req.body.values,
   };

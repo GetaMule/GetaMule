@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
     this.editar.getInfo()
       .subscribe(res => {
         this.usernameId = res.user
-
       })
   }
 
