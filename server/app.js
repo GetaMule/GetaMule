@@ -63,6 +63,7 @@ app.use('/', getProduct);
 app.use('/api/user', editUser);
 app.use('/messages', messageRoutes);
 
+app.use(function (req, res) { res.sendfile(__dirname + "/public/index.html") });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
