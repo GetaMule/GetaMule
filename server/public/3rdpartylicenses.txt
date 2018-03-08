@@ -67,15 +67,15 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-@angular/core@5.2.6
+@angular/core@5.2.7
 MIT
 MIT
 
-@angular/http@5.2.6
+@angular/http@5.2.7
 MIT
 MIT
 
-@angular/router@5.2.6
+@angular/router@5.2.7
 MIT
 MIT
 
@@ -142,15 +142,15 @@ externally maintained libraries used by this software which have their
 own licenses; we recommend you read them, as their terms may differ from
 the terms above.
 
-@angular/platform-browser@5.2.6
+@angular/platform-browser@5.2.7
 MIT
 MIT
 
-@angular/forms@5.2.6
+@angular/forms@5.2.7
 MIT
 MIT
 
-@angular/material@6.0.0-beta.4-877eb85
+@angular/material@6.0.0-beta.4-e7533a5
 MIT
 The MIT License
 
@@ -174,7 +174,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-@angular/platform-browser-dynamic@5.2.6
+@angular/platform-browser-dynamic@5.2.7
 MIT
 MIT
 
@@ -202,7 +202,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-@angular/cdk@6.0.0-beta.4-877eb85
+@angular/cdk@6.0.0-beta.4-e7533a5
 MIT
 The MIT License
 
@@ -226,7 +226,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-@angular/compiler@5.2.6
+@angular/compiler@5.2.7
 MIT
 MIT
 
@@ -234,6 +234,6 @@ MIT
 MIT
 MIT
 
-@angular/common@5.2.6
+@angular/common@5.2.7
 MIT
 MIT
