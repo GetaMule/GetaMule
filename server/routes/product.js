@@ -18,7 +18,6 @@ router.post('/getProduct', (req, res, next) => {
     currentness: 'daily_updated',
     key: 'keyword',
     country: req.body.country, 
-
     values: req.body.values,
   };
   axios({

@@ -18,7 +18,8 @@ export class MessageComponent implements OnInit {
   values: string
   country: string
   emails: any = [];
-
+  all: any;
+  ab: any = [];
   constructor(public submit: SubmitProdService, public customerService: SubmitProdService,
     public userService: EditUserService,
     private router: Router,
@@ -38,15 +39,19 @@ export class MessageComponent implements OnInit {
       // console.log("this are the user emails");
       // console.log(m._body.user.email)
       // this.emails = m.user.email;
+      this.all = JSON.parse(this.emails[0]).user;
+      this.all.forEach(m => {
+        if (m.originCountry !== this.country) this.ab.push(m.email);
+      })
     })
-    console.log(this.emails.user)
+
   }
 
   sendEmail(){
     console.log('entro en el componente')
-    this.usermail = this.emails;
-    console.log(this.usermail)
-    this.customerService.sendEmail(this.usermail, this.subject, this.text, this.html).subscribe(res => {
+    this.usermail = this.ab;
+    console.log(this.ab)
+    this.customerService.sendEmail(this.ab, this.subject, this.text, this.html).subscribe(res => {
       console.log('Sent!')
       this.router.navigate(['customer'])
     });
