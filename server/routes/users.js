@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const MyTravels = require('../models/MyTravels')
 const Order = require('../models/Order')
 
+//const upload = require('../configs/multer');
 
 
 router.get('/', (req, res, next) => {
@@ -13,7 +14,7 @@ router.get('/', (req, res, next) => {
   User.findById(userId, (err, user) => {
   }).populate("myTravels").populate("orders")
     .then((respuesta) => {
-     
+
       res.status(200).json({ user: respuesta })
     }).catch(e => res.status(500).json(e))
 });
@@ -27,19 +28,19 @@ router.get('/getCountries', (req, res, next) => {
     })
     .catch(e => res.status(500).json(e))
 });
+router.put('/edit/:id',  (req, res, next) => {// upload.single('file'),
 
-router.put('/edit/:id', (req, res, next) => {
   const userId = req.params.id;
   const updates = {
 
     username: req.body.user.username,
-
+    //image: `../uploads/${req.file.filename}`,
     password: req.body.user.password,
     role: req.body.user.role,
 
   };
   if (req.file) {
-    updates.imgUrl = `/uploads/${req.file.filename}`;
+    updates.imgUrl = `../uploads/${req.file.filename}`;
   }
   if (req.body.password !== "") {
     const password = req.body.user.password;

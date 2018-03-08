@@ -1,30 +1,27 @@
-edit component
+<br>
+<div class="card  ca border-light mb-3" style="max-width: 18rem">
+  <form>
+    <div class="form-group">
+      <label>Username</label>
+      <input type="string" [(ngModel)]="user.username" name="username" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" [(ngModel)]="user.password" name="password" class="form-control" placeholder="Password">
+    </div>
 
-<form>
-  <div class="form-group">
-    <label>Username</label>
-    <input type="string" [(ngModel)]="user.username" name="username" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>Password</label>
-    <input type="password" [(ngModel)]="user.password" name="password" class="form-control" placeholder="Password">
-  </div>
- 
-  <!-- <div>
-  <input [(ngModel)]="user.originCountry" list="country" name="originCountry">
-  <datalist id="originCountry">
-    <option value="es">
-    <option value="us">
-    <option value="fr">
-    <option value="de">
-    <option value="at"> 
-  </datalist>
-</div> -->
-
-  <input [(ngModel)]="user.role" list="role" name="role">
-  <datalist id="role">
-    <option value="CUSTOMER">
-    <option value="MULE">
-  </datalist>
-  <button type="submit" (click)="edit(user)" class="btn btn-primary">Submit</button>
-</form>
+    
+    <!-- <input type="file" name="file" ng2FileSelect [uploader]="uploader" /> -->
+        
+    <div class="form-group">
+      <input [(ngModel)]="user.role" list="role" name="role">
+      <datalist id="role">
+        <option value="CUSTOMER">
+          <option value="MULE">
+      </datalist>
+    </div>
+    
+    <br>
+    <button type="submit" (click)="edit(user)" class="btn btn-s ">Submit</button>
+  </form>
+</div>

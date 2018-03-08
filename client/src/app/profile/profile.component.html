@@ -1,18 +1,37 @@
-  <div *ngIf="usernameId">
-    <div>
-    Username:{{ usernameId.username}}
-  </div>
-  <div>
-      Country:{{ usernameId.originCountry}}
-    </div>
-    <div>
-        Orders:{{ usernameId.orders | json }}
+<br>
+<div *ngIf="usernameId">
+  <div class="card  border-light mb-3">
+    <div class="card-header card-h">ABOUT</div>
+    <div class="ca">
+    <div class="card-body">
+      <img class="profile-pic" src="https://d3uqp1raf0m8tp.cloudfront.net/assets/images/profile-green.png">
+      <br>
+      <br>
+      <div>
+        Nickname: {{ usernameId.username | uppercase}}
       </div>
+      <div>Email: {{usernameId.email}}</div>
+      <div>
+        Your Country:{{ usernameId.originCountry | uppercase}}
+      </div>
+      <div>
+        You have ({{ usernameId.orders.length }}) orders.
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-s" [routerLink]="['edit',   usernameId._id] ">Edit User</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-d" (click)="logout()"> Logout </button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
 
-  <button class="btn btn-danger" (click)="logout()"> Logout-Profile </button>
-  <button [routerLink]="['edit',   usernameId._id] ">edit</button>
 </div>
-<div *ngIf="!session.getUser()">
+<div *ngIf="!usernameId">
   <h1>You need to be Logged in to look into your details</h1>
-  <button class="btn"[routerLink]="['']"> Home </button>
+  <button class="btn" [routerLink]="['']"> Home </button>
 </div>

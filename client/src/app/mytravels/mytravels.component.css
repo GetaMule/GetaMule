@@ -1,3 +1,42 @@
 .btn-s:hover:not(.active) {
     background-color: #4CAF50;
      color:white}
+     body{
+        margin: 0;
+        padding: 0;
+        background: #fff;
+      }
+      
+      .box{
+        border:1px solid 4CAF50;
+        border-radius: 2%;
+        width:50%;
+        padding-bottom: 10px;
+        display: inline-block;
+      }
+      
+      span{
+          width:50px;
+          height: 50px;
+      }
+      .card-h{
+        background-color: #4CAF50;
+        color :white
+      
+      }
+      .airline{
+          padding-top: 5px;
+          text-align: left;
+          margin-left: 20px;
+      }
+      .little{
+        font-size: x-small;
+        margin-bottom: 0;
+      }
+      .land{
+          font-size:xx-large
+      }
+      .boarding-pass{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+      }

@@ -26,3 +26,26 @@ ul.topnav li.right {float: right;}
     ul.topnav li.right, 
     ul.topnav li {float: none;}
 }
+.jaja{
+    display: inline-block;
+    text-align:center;
+}
+.secret{
+   
+    position:absolute;
+    top:70px;
+    left:20px;
+    color:white;
+    background-color:transparent ;
+    background-size:cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px
+}
+.secret:hover:not(.active) {
+    background-image:url("https://image.flaticon.com/icons/png/512/70/70423.png");
+    display:block;
+
+    
+     
+    }
