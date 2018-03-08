@@ -3,10 +3,12 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
+import { environment }  from '../environments/environment';
+const BASEURL: string = environment.BASE_URL;
 
 @Injectable()
 export class SubmitProdService {
-  BASEURL: string = "http://localhost:3000"
+  BASEURL: string = environment.BASE_URL;
   options: object = { withCredentials: true };
 
   constructor(private http: Http) { }
