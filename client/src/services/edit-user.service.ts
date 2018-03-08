@@ -10,6 +10,7 @@ export interface User {
   password: String,
   originCountry: String,
   role: String,
+  email: String
 }
 
 @Injectable()

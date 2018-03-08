@@ -88,6 +88,9 @@ router.get('/delete-travel/:id', (req, res) => {
     .catch(e => res.status(500).json(e));
 })
 
+router.get('/messages/sendAll', (req, res, next) => { 
+    
+});
 
 
 module.exports = router;
