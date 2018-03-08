@@ -17,7 +17,7 @@ router.post("/message", (req, res) => {
      }
    });
    let mailOptions = {
-     from: '"👻" <GetaMule@nodrugs.com>',
+     from: "GetaMule SL",
      to: mailAddress,
      subject: mailSubject,
      text: mailText, // plain text body

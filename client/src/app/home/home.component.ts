@@ -3,6 +3,11 @@ import { SessionService } from '../../services/session.service';
 import { SubmitProdService } from '../../services/submit-prod.service';
 import { Router, ActivatedRoute } from '@angular/router'
 import { EditUserService } from '../../services/edit-user.service';
+import * as $ from 'jquery';
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const wrapper = document.querySelector(".wrapper");
+const button = document.querySelector(".button");
 
 @Component({
   selector: 'app-home',
@@ -35,8 +40,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getCountries();
-
-  }
+}
+  
   getCountries() {
     return this.submit.getCountries().subscribe(res => {
       function removeDuplicates(arr){

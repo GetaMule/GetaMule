@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from "@angular/router";
   styleUrls: ['./message.component.css']
 })
 export class MessageComponent implements OnInit {
-  texto: string = 'Hola soy Sebas, quiero venderte un producto'
+  texto: string
   usermail: string
   subject: string
   text: string
@@ -22,6 +22,7 @@ export class MessageComponent implements OnInit {
   }
   sendEmail(){
     console.log('entro en el componente')
+    this.usermail = "lucasmartincalderon1@gmail.com"
     console.log(this.usermail)
     this.customerService.sendEmail(this.usermail, this.subject, this.text, this.html).subscribe(res => {
       console.log('Sent!');
