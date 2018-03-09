@@ -29,8 +29,14 @@
 
                     </mat-form-field>
                     <br>
-                    <button class="btn btn-s" (click)="submitProduct()"> Submit </button>
-                    <button class="btn btn-s" (click)="searchProduct()"> Search </button>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-s" (click)="submitProduct()"> Submit </button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-s" (click)="searchProduct()"> Search </button>
+                        </div>
+                    </div>
                     <br>
                     <br>
                 </form>
@@ -48,7 +54,7 @@
                 <p class="card-text">{{price.shop_name | json }}</p>
                 <a href={{price.url}} target="_blank" class="btn btn-primary">View Product Link</a>
                 <button class="btn  order-btn btn-success" (click)="order(price, myDate,tel)">Order product </button>
-                <button class="btn  order-btn btn-info" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Ask your Mule</button>
+                <button class="btn btn-success order-btn btn-info" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Ask your Mule</button>
 
                 <div id="id01" class="modal">
                     <app-message></app-message>
