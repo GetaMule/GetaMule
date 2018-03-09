@@ -1,3 +1,4 @@
+<div class="background">
 <br>
 <div *ngIf="usernameId">
   <div class="card  border-light mb-3">
@@ -29,9 +30,10 @@
     </div>
     </div>
   </div>
+  <br><br><br>
 
 </div>
 <div *ngIf="!usernameId">
   <h1>You need to be Logged in to look into your details</h1>
   <button class="btn" [routerLink]="['']"> Home </button>
-</div>
+</div></div>

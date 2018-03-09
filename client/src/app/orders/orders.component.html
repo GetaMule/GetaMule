@@ -1,28 +1,35 @@
-<div *ngIf="usernameId.orders">
-  <div *ngIf="usernameId.orders.length >= 1">
-    <h1>Your current orders:</h1>
-    <div *ngFor="let o of usernameId.orders" class="card">
-      <div class="card-header card-h"><b>{{o.tel | uppercase}}</b></div>
-    <div class="card-body card-full" >
-      Price:
-      <p><span>*</span>{{o.price}} {{o.currency}}</p>
-      Shop:
-      <p>{{o.shop_name}}</p>
+<div class="background">
+  <div *ngIf="usernameId.orders">
+    <div *ngIf="usernameId.orders.length >= 1">
+      <h1>Your current orders:</h1>
+      <div *ngFor="let o of usernameId.orders" class="card">
+        <div class="card-header card-h">
+          <b>{{o.tel | uppercase}}</b>
+        </div>
+        <div class="card-body card-full">
+          Price:
+          <p>
+            <span>*</span>{{o.price}} {{o.currency}}</p>
+          Shop:
+          <p>{{o.shop_name}}</p>
 
-      Arrives:
-      <p>{{o.orderDate | date :'fullDate'}}</p>
-      <p class="little"><span>*</span>Interest isn't added yet</p>
+          Arrives:
+          <p>{{o.orderDate | date :'fullDate'}}</p>
+          <p class="little">
+            <span>*</span>Interest isn't added yet</p>
 
-      <button class="btn btn-danger" (click)="deleteO(o._id)">Delete</button>
+          <button class="btn btn-danger" (click)="deleteO(o._id)">Delete</button>
+        </div>
+      </div>
+      <br>
     </div>
   </div>
-  <br>
+
+
+  <div *ngIf="usernameId.orders.length < 1">
+    <h3>You don't have any orders yet</h3>
+    <h1>:(</h1>
+    <button class="btn btn-s" [routerLink]="['/user/home']">Make an order</button>
   </div>
-</div>
-
-
-<div *ngIf="usernameId.orders.length < 1">
-  <h3>You don't have any orders yet</h3>
-  <h1>:(</h1>
-  <button class="btn btn-s" [routerLink]="['/user/home']">Make an order</button>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>

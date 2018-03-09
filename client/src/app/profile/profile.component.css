@@ -33,3 +33,6 @@
     width: 25rem;
     display: inline-block;
 }
+.background{
+    background-color: rgba(76, 173, 79,0.3)
+  }

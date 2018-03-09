@@ -1,76 +1,79 @@
-<br>
-<br>
-<div *ngIf="usernameId">
-    <div class="card  ca border-light mb-3">
-        <div class="card-header card-h">
-            <b>What do you want to buy?</b>
-        </div>
-        <div class="card-body card-b">
-            <form>
-                <input class="form-control" width="50px" type="text" placeholder="Product name " [(ngModel)]="values" name="values">
-                <br>
+<div class="background">
+    <br>
+    <br>
+    <div *ngIf="usernameId">
+        <div class="card  ca border-light mb-3">
+            <div class="card-header card-h">
+                <b>What do you want to buy?</b>
+            </div>
+            <div class="card-body card-b">
+                <form>
+                    <input class="form-control" width="50px" type="text" placeholder="Product name " [(ngModel)]="values" name="values">
+                    <br>
 
-                <select class="form-control" width="50px" [(ngModel)]="country" name="country">
-                    <option *ngFor="let country of users" value="{{country}}">{{country | uppercase}}</option>
-                </select>
+                    <select class="form-control" width="50px" [(ngModel)]="country" name="country">
+                        <option *ngFor="let country of users" value="{{country}}">{{country | uppercase}}</option>
+                    </select>
 
 
-                <br>
+                    <br>
 
-                <div *ngIf="values">
-                    <h3>When do you want your future {{values}} ?</h3>
+                    <div *ngIf="values">
+                        <h3>When do you want your future {{values}} ?</h3>
+                    </div>
+
+                    <mat-form-field class="example-full-width">
+                        <input matInput [matDatepicker]="picker" [(ngModel)]="myDate" name="myDate" placeholder="Choose a date" (dateInput)="submitDate(myDate)">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker touchUi="true" #picker></mat-datepicker>
+
+                    </mat-form-field>
+                    <br>
+                    <button class="btn btn-s" (click)="submitProduct()"> Submit </button>
+                    <button class="btn btn-s" (click)="searchProduct()"> Search </button>
+                    <br>
+                    <br>
+                </form>
+                <div class="spinner-container">
+                    <mat-spinner [diameter]="30" id="spinner"></mat-spinner>
                 </div>
 
-                <mat-form-field class="example-full-width">
-                    <input matInput [matDatepicker]="picker" [(ngModel)]="myDate" name="myDate" placeholder="Choose a date" (dateInput)="submitDate(myDate)">
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker touchUi="true" #picker></mat-datepicker>
-
-                </mat-form-field>
-                <br>
-                <button class="btn btn-s" (click)="submitProduct()"> Submit </button>
-                <button class="btn btn-s" (click)="searchProduct()"> Search </button>
-                <br><br>
-            </form>
-            <div class="spinner-container">
-                <mat-spinner  [diameter]="30" id="spinner"></mat-spinner>
             </div>
-
         </div>
-    </div>
-    <br>
-    <div *ngFor="let price of p; let i of index" class="card" style="width: 15rem;">
-        <img class="card-img-top" src={{image}} width="25" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">{{ price.price | json}} - {{ price.currency | json }} </h5>
-            <p class="card-text">{{price.shop_name | json }}</p>
-            <a href={{price.url}} target="_blank" class="btn btn-primary">View Product Link</a>
-            <button class="btn  order-btn btn-success" (click)="order(price, myDate,tel)">Order product </button>
-            <button  class="btn  order-btn btn-info" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Ask your Mule</button>
+        <br>
+        <div *ngFor="let price of p; let i of index" class="card ca" style="width: 15rem;">
+            <img class="card-img-top" src={{image}} width="25" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ price.price | json}} - {{ price.currency | json }} </h5>
+                <p class="card-text">{{price.shop_name | json }}</p>
+                <a href={{price.url}} target="_blank" class="btn btn-primary">View Product Link</a>
+                <button class="btn  order-btn btn-success" (click)="order(price, myDate,tel)">Order product </button>
+                <button class="btn  order-btn btn-info" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Ask your Mule</button>
 
-<div id="id01" class="modal">
-<app-message></app-message>
-</div>
+                <div id="id01" class="modal">
+                    <app-message></app-message>
+                </div>
 
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
+                <script>
+                    // Get the modal
+                    var modal = document.getElementById('id01');
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                </script>
+            </div>
         </div>
-    </div>
-    <br>
-    <br>
-    <!-- <button class="btn btn-danger" (click)="logout()">Logout-Home</button> -->
-    <br>
-    <br>
-    <div *ngIf="!usernameId"> You do not have privileges to access this site! Please log in to place an order!
-        <button [routerLink]="['']">Home</button>
+        <br>
+        <br>
+        <!-- <button class="btn btn-danger" (click)="logout()">Logout-Home</button> -->
+        <br>
+        <br>
+        <div *ngIf="!usernameId"> You do not have privileges to access this site! Please log in to place an order!
+            <button [routerLink]="['']">Home</button>
+        </div>
     </div>
 </div>
